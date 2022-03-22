@@ -1,7 +1,7 @@
-import computer.*;
-import computer.interfaces.*;
+package main;
 
-import java.util.Scanner;
+import main.java.computer.*;
+import main.java.computer.interfaces.*;
 
 public class Main {
     public static void main(String[] args) {

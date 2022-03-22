@@ -1,4 +1,4 @@
-package computer;
+package main.java.computer;
 
 public class Mouse {
     private String mouseModel;
