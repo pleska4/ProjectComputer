@@ -1,33 +1,32 @@
-package Computer;
+package computer;
 
 import java.util.Objects;
 
-public class Monoblock extends Computer{
-    int  weightMonoblock;
-    final int COSTMONOBLOCK = 10000; // Final variable
+public class Monoblock extends Computer {
+    private int weightMonoblock;
+    private final int COSTMONOBLOCK = 10000; // Final variable
+
     public Monoblock(int weightMonoblock) {
         this.weightMonoblock = weightMonoblock;
     }
 
-
-
     @Override
-    public void display( int size) {
-        System.out.println("Size display of Monoblock: "+size+" inches");
+    public void display(int size) {
+        System.out.println("Size display of Monoblock: " + size + " inches");
     }
 
     @Override
     public void network(String interfaceNetwork) {
-        System.out.println("Monoblock connected to the network "+interfaceNetwork);
+        System.out.println("Monoblock connected to the network " + interfaceNetwork);
     }
 
     @Override
     public void costComputer(int cost) {
-        System.out.println ("Class cost of Monoblock is premium class and cost " + cost) ;
+        System.out.println("Class cost of Monoblock is premium class and cost " + cost);
     }
 
     public String toString() {
-        return "Massa monobloka: " + weightMonoblock+ "Cena monobloka: " + COSTMONOBLOCK;
+        return "Massa monobloka: " + weightMonoblock + "Cena monobloka: " + COSTMONOBLOCK;
 
     }
 
@@ -43,6 +42,7 @@ public class Monoblock extends Computer{
     public int hashCode() {
         return Objects.hash(weightMonoblock, COSTMONOBLOCK);
     }
+
     @Override
     public void iPowerOn() {
         System.out.println("Monobloks Power - ON");
@@ -52,13 +52,11 @@ public class Monoblock extends Computer{
     @Override
     public void switchNetwork() {
         System.out.println("You interface for Network are LAN+WIFI");
-
     }
 
     @Override
     public void scanIdable(String iD) {
-        System.out.println("Your ID: "+ iD);
-
+        System.out.println("Your ID: " + iD);
     }
 
     @Override

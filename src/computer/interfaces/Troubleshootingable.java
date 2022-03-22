@@ -1,4 +1,4 @@
-package Computer.Interfaces;
+package computer.interfaces;
 
 public interface Troubleshootingable {
     default String mainInstruction () {

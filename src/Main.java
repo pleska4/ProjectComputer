@@ -1,6 +1,7 @@
-import Computer.*;
-import Computer.Interfaces.*;
+import computer.*;
+import computer.interfaces.*;
 
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class Main {
         System.out.println(herMonoblok);
         System.out.println(ourMonoblok);
         boolean otvet = ourMonoblok.toString().equals(herMonoblok.toString());
-        System.out.println("Her Mono = Our Mono? :" +otvet);
+        System.out.println("Her Mono = Our Mono? :" + otvet);
 
         //Use polymorphism
         Supportable sup = new Laptop("Lenovo", 5);
@@ -36,11 +37,21 @@ public class Main {
         ScanIdable.enterPassword(); //use static method of interface
 
         //use final method
-        Mouse myMouse = new Mouse("Logitech","USB");
+        Mouse myMouse = new Mouse("Logitech", "USB");
         myMouse.click();
 
         // use static method
         Printer.costPrinter(1520, 8560);
+
+        Monitor myMonitor = new Monitor();
+        myMonitor.isMonitorOffM();
+        myMonitor.offMonitor(false);
+
+        //use scanner. Enter memory volume
+        SystemUnit mySystemUnit = new SystemUnit();
+        mySystemUnit.summMemory();
+
+
 
     }
 }

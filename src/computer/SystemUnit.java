@@ -1,11 +1,13 @@
-package Computer;
+package computer;
+
+import java.util.Scanner;
 
 public class SystemUnit {
     private String nameSystemUnit;
     private String procSystemUnit;
     private String cPU;
     private double frequenceCPU;
-    private int ssd;
+    private int sdd;
     private int hdd;
 
     public SystemUnit(String nameSystemUnit, String procSystemUnit, String cPU, int frequenceCPU, int ssd, int hdd) {
@@ -13,25 +15,19 @@ public class SystemUnit {
         this.procSystemUnit = procSystemUnit;
         this.cPU = cPU;
         this.frequenceCPU = frequenceCPU;
-        this.ssd = ssd;
+        this.sdd = sdd;
         this.hdd = hdd;
     }
 
     public SystemUnit(String nameSystemUnit, int frequenceCPU, int ssd, int hdd) {
         this.nameSystemUnit = nameSystemUnit;
         this.frequenceCPU = frequenceCPU;
-        this.ssd = ssd;
+        this.sdd = ssd;
         this.hdd = hdd;
     }
 
     public SystemUnit() {
-        this.nameSystemUnit = "Standart";
-        this.procSystemUnit = "BelProc";
-        this.cPU = "NoName";
-        this.frequenceCPU = 3.2;
-        this.ssd = 50;
-        this.hdd = 20;
-    }
+            }
 
     public void setNameSystemUnit(String nameSystemUnit) {
         this.nameSystemUnit = nameSystemUnit;
@@ -50,7 +46,7 @@ public class SystemUnit {
     }
 
     public void setSsd(int ssd) {
-        this.ssd = ssd;
+        this.sdd = ssd;
     }
 
     public void setHdd(int hdd) {
@@ -74,7 +70,7 @@ public class SystemUnit {
     }
 
     public int getSsd() {
-        return ssd;
+        return sdd;
     }
 
     public int getHdd() {
@@ -82,7 +78,17 @@ public class SystemUnit {
     }
 
     public void memorySystemUnit() {
-        int memory = hdd + ssd;
+        int memory = hdd + sdd;
         System.out.println("Memory of Computer: " + memory);
+    }
+    public void summMemory() {
+        Scanner hddd = new Scanner(System.in);
+        System.out.print("Add volume HDD: ");
+        int hdd = hddd.nextInt();
+        Scanner sddd = new Scanner(System.in);
+        System.out.print("Add volume SDD: ");
+        int sdd = sddd.nextInt();
+        int summ = sdd+hdd;
+        System.out.println ("Total memory of your SystemUnit " + summ);
     }
 }

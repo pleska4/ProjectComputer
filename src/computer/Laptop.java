@@ -1,12 +1,12 @@
-package Computer ;
+package computer;
 
 import java.util.Objects;
 
-public class Laptop extends Computer  {
+public class Laptop extends Computer {
     String nameUserLaptop;
     int size;
 
-    public Laptop (String nameUserLaptop, int size){
+    public Laptop(String nameUserLaptop, int size) {
         this.nameUserLaptop = nameUserLaptop;
         this.size = size;
     }
@@ -54,7 +54,7 @@ public class Laptop extends Computer  {
 
     @Override
     public void scanIdable(String iD) {
-        System.out.println("Your ID: "+ iD);
+        System.out.println("Your ID: " + iD);
 
     }
 

@@ -1,23 +1,23 @@
-package Computer;
+package computer;
 
 public class Monitor {
     private String modelMonitor;
     private int diagonalMonitor;
-    private boolean connectorHDMI;
-    private boolean connectorVDI;
-    private boolean monitorOff;
+    private boolean isConnectorHDMI;
+    private boolean isConnectorVDI;
+    private boolean isMonitorOff;
 
-    public Monitor(String modelMonitor, int diagonalMonitor, boolean connectorHDMI, boolean connectorVDI, boolean monitorOff) {
+    public Monitor(String modelMonitor, int diagonalMonitor, boolean isConnectorHDMI, boolean isConnectorVDI, boolean isMonitorOff) {
         this.modelMonitor = modelMonitor;
-        this.connectorHDMI = connectorHDMI;
-        this.connectorVDI = connectorVDI;
+        this.isConnectorHDMI = isConnectorHDMI;
+        this.isConnectorVDI = isConnectorVDI;
         this.diagonalMonitor = diagonalMonitor;
-        this.monitorOff = monitorOff;
+        this.isMonitorOff = isMonitorOff;
     }
 
     public Monitor(String modelMonitor, boolean monitorOff) {
         this.modelMonitor = modelMonitor;
-        this.monitorOff = monitorOff;
+        this.isMonitorOff = monitorOff;
     }
 
     public Monitor() {
@@ -34,11 +34,11 @@ public class Monitor {
     }
 
     public void setConnectorHDMI(boolean connectorHDMI) {
-        this.connectorHDMI = connectorHDMI;
+        this.isConnectorHDMI = connectorHDMI;
     }
 
     public void setConnectorVDI(boolean connectorVDI) {
-        this.connectorVDI = connectorVDI;
+        this.isConnectorVDI = connectorVDI;
     }
 
     public String getmodelMonitor() {
@@ -49,21 +49,21 @@ public class Monitor {
         return diagonalMonitor;
     }
 
-    public boolean isConnectorHDMI() {
-        return connectorHDMI;
+    public boolean isConnectorHDMIM() {
+        return isConnectorHDMI;
     }
 
-    public boolean isConnectorVDI() {
-        return connectorVDI;
+    public boolean isConnectorVDIM() {
+        return isConnectorVDI;
     }
 
-    public boolean isMonitorOff() {
-        return monitorOff;
+    public boolean isMonitorOffM() {
+        return isMonitorOff;
     }
 
-    public void offMonitor() {
+    public void offMonitor(boolean monitorOff) {
 
-        if (monitorOff = true)
+        if (monitorOff == true)
             System.out.println("MonitorOFF!!!");
         else
             System.out.println("MonitorON!!!");

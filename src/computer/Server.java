@@ -1,11 +1,11 @@
-package Computer;
+package computer;
 
 import java.util.Objects;
 
 public class Server extends Computer {
-    int numberOfConnections;
-    int size;
-    int cost;
+    private int numberOfConnections;
+    private int size;
+    private int cost;
 
     public Server(int numberOfConnections, int size, int cost) {
         this.numberOfConnections = numberOfConnections;
@@ -62,7 +62,7 @@ public class Server extends Computer {
 
     @Override
     public void scanIdable(String iD) {
-        System.out.println("Your ID: "+ iD);
+        System.out.println("Your ID: " + iD);
 
     }
 

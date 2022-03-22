@@ -1,11 +1,11 @@
-package Computer;
+package computer;
 
 
-import Computer.Interfaces.*;
+import computer.interfaces.*;
 
 
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {
-    private String nameComputer; //use static variable
+    private static String nameComputer; //use static variable
     private String ipComputer;
     private String osComputer;
     private Mouse mouse;
@@ -96,8 +96,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     }
 
     public void showComputerInfo() {
-        System.out.println("Name Computer  : " + nameComputer + "\n" + "OS Computer: " + osComputer + "\n" +
-                "IP Computer " + ipComputer);
+        System.out.println("Name Computer  : " + nameComputer + "\n" + "OS Computer: " + osComputer + "\n" + "IP Computer " + ipComputer);
     }
 
     public void sendLetterForJack(String addressEmailAuthor, String addressEmailRecipient) {

@@ -1,4 +1,4 @@
-package Computer.Interfaces;
+package computer.interfaces;
 
 public interface IPowerOn {
     void iPowerOn();

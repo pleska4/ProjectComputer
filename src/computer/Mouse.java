@@ -1,6 +1,6 @@
-package Computer;
+package computer;
 
-public  class Mouse {
+public class Mouse {
     private String mouseModel;
     private String interfaceMouse;
 

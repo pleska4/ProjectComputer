@@ -1,9 +1,9 @@
-package Computer;
+package computer;
 
 public class Printer {
     private String modelPrinter;
-    private  int summPages;
-    private  int timeResource;
+    private int summPages;
+    private int timeResource;
 
     public Printer(String modelPrinter, int summPages, int timeResource) {
         this.modelPrinter = modelPrinter;
@@ -13,7 +13,6 @@ public class Printer {
 
     public Printer() {
         this.modelPrinter = "HP";
-        this.timeResource = 20;
         this.timeResource = 60000;
     }
 
