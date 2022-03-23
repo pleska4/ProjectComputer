@@ -31,11 +31,15 @@ public class Mouse {
 
     public String getInterfaceMouse() {
         return interfaceMouse;
-    }
+
+        }
 
     public final void click() {
         System.out.println("Interface of Mouse: " + interfaceMouse);
         System.out.println("Unknown interface");
     }
-
 }
+
+
+
+

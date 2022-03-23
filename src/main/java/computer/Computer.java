@@ -102,7 +102,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     public void sendLetterForJack(String addressEmailAuthor, String addressEmailRecipient) {
 
         EMail newLetter = new EMail("For Jack", "I love you", "Your wife Mary");
-        System.out.println("AddressAuthor: " + addressEmailAuthor + newLetter.letterText2() + "\n" + "AddressRecipient: " + addressEmailRecipient);
+        System.out.println("AddressAuthor: " + addressEmailAuthor + newLetter.letterText() + "\n" + "AddressRecipient: " + addressEmailRecipient);
     }
 
 

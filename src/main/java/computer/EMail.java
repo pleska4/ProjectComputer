@@ -46,12 +46,8 @@ public class EMail {
         return signatureLetter;
     }
 
-    public void letterText() {
-        System.out.println(headerLetter + "\n" + bodyLetter + "\n" + signatureLetter);
 
-    }
-
-    public String letterText2() {
+    public String letterText() {
         String s = "\n" + headerLetter + "\n" + bodyLetter + "\n" + signatureLetter;
         return s;
     }

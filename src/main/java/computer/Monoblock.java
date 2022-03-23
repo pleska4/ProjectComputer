@@ -1,5 +1,7 @@
 package main.java.computer;
 
+import main.java.computer.exceptions.WeigthMonoblockExeption;
+
 import java.util.Objects;
 
 public class Monoblock extends Computer {
@@ -9,6 +11,20 @@ public class Monoblock extends Computer {
     public Monoblock(int weightMonoblock) {
         this.weightMonoblock = weightMonoblock;
     }
+
+    public void monoblockComparison(){
+    Monoblock herMonoblok = new Monoblock(100);
+    Monoblock ourMonoblok = new Monoblock(250);
+    boolean otvet = ourMonoblok.toString().equals(herMonoblok.toString());
+        if (!otvet) {
+        try {
+            throw new WeigthMonoblockExeption("Monobloks are different!");
+        } catch (WeigthMonoblockExeption e) {
+            e.printStackTrace();
+        }
+    }
+        System.out.println("Her Mono = Our Mono? :" + otvet);
+}
 
     @Override
     public void display(int size) {
@@ -57,6 +73,7 @@ public class Monoblock extends Computer {
     @Override
     public void scanIdable(String iD) {
         System.out.println("Your ID: " + iD);
+
     }
 
     @Override

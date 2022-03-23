@@ -1,10 +1,12 @@
 package main;
 
 import main.java.computer.*;
+import main.java.computer.exceptions.VolumeMemoryException;
+import main.java.computer.exceptions.WeigthMonoblockExeption;
 import main.java.computer.interfaces.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
 
 
         Server myServer = new Server(100, 500, 25000);
@@ -20,12 +22,8 @@ public class Main {
         hisLaptop.mainInstruction();
         hisLaptop.mainInstruction();
 
-        Monoblock herMonoblok = new Monoblock(100);
-        Monoblock ourMonoblok = new Monoblock(250);
-        System.out.println(herMonoblok);
-        System.out.println(ourMonoblok);
-        boolean otvet = ourMonoblok.toString().equals(herMonoblok.toString());
-        System.out.println("Her Mono = Our Mono? :" + otvet);
+        Monoblock mono = new Monoblock(10);
+        mono.monoblockComparison();
 
         //Use polymorphism
         Supportable sup = new Laptop("Lenovo", 5);

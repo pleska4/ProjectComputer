@@ -1,5 +1,7 @@
 package main.java.computer;
 
+import main.java.computer.exceptions.VolumeMemoryException;
+
 import java.util.Scanner;
 
 public class SystemUnit {
@@ -81,13 +83,19 @@ public class SystemUnit {
         int memory = hdd + sdd;
         System.out.println("Memory of Computer: " + memory);
     }
-    public void summMemory() {
+    public void summMemory() throws VolumeMemoryException {
         Scanner hddd = new Scanner(System.in);
         System.out.print("Add volume HDD: ");
         int hdd = hddd.nextInt();
+        if (hdd<=0){
+            throw new VolumeMemoryException("Value of HDD should be over 1! ");
+        }
         Scanner sddd = new Scanner(System.in);
         System.out.print("Add volume SDD: ");
         int sdd = sddd.nextInt();
+        if (sdd<=0){
+            throw new VolumeMemoryException("Value of SDD should be over 1! ");
+        }
         int summ = sdd+hdd;
         System.out.println ("Total memory of your SystemUnit " + summ);
     }
