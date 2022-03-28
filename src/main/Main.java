@@ -5,9 +5,19 @@ import main.java.computer.exceptions.VolumeMemoryException;
 import main.java.computer.exceptions.WeigthMonoblockExeption;
 import main.java.computer.interfaces.*;
 
+import java.util.Collections;
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
 
+        LinkedList<String> list = new LinkedList<String>();
+        list.add("Manish");
+        list.add("Pandit");
+        list.add("Tanvi");
+        list.add("Monika");
+        list.remove();
+        System.out.println("After removing the head.."+list.clone());
 
         Server myServer = new Server(100, 500, 25000);
         myServer.display(150);
