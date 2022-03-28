@@ -11,11 +11,12 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
 
+        //
         LinkedList<String> list = new LinkedList<String>();
-        list.add("Manish");
-        list.add("Pandit");
-        list.add("Tanvi");
-        list.add("Monika");
+        list.add("Pentium");
+        list.add("Nemiga");
+        list.add("Mac");
+        list.add("HP");
         list.remove();
         System.out.println("After removing the head.."+list.clone());
 
