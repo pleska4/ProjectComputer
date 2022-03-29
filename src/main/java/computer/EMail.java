@@ -1,5 +1,7 @@
 package main.java.computer;
 
+import java.util.ArrayList;
+
 public class EMail {
     private boolean letterSent;
     private boolean letterDelivered;
@@ -18,8 +20,13 @@ public class EMail {
         this.bodyLetter = bodyLetter;
     }
 
-    public EMail(String bodyLetter) {
-        this.bodyLetter = bodyLetter;
+
+    public int sizeBoxLetters() {
+        ArrayList<String> boxLetters = new ArrayList<>();
+        boxLetters.add("Stop War");
+        boxLetters.add("We love Ukraine");
+        boxLetters.add("We are together!");
+        return boxLetters.size();
     }
 
     public void setBodyLetter(String bodyLetter) {

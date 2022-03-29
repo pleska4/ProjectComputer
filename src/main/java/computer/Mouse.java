@@ -16,6 +16,10 @@ public class Mouse {
         this.mouseModel = mouseModel;
         this.interfaceMouse = interfaceMouse;
     }
+    @Override
+    public String toString() {
+        return mouseModel+ '\'';
+    }
 
     public void setMouseModel(String modelMouse) {
         this.mouseModel = modelMouse;

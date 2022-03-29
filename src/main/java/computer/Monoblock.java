@@ -23,7 +23,7 @@ public class Monoblock extends Computer {
             e.printStackTrace();
         }
     }
-        System.out.println("Her Mono = Our Mono? :" + otvet);
+
 }
 
     @Override

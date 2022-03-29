@@ -5,10 +5,21 @@ public class Printer {
     private int summPages;
     private int timeResource;
 
-    public Printer(String modelPrinter, int summPages, int timeResource) {
+    public Printer(String modelPrinter, int i, int i1) {
         this.modelPrinter = modelPrinter;
         this.summPages = summPages;
         this.timeResource = timeResource;
+    }
+
+    public Printer(String modelPrinter) {
+        this.modelPrinter = modelPrinter;
+    }
+
+    @Override
+    public String toString() {
+        return "Printer{" +
+                "modelPrinter='" + modelPrinter + '\'' +
+                '}';
     }
 
     public Printer() {

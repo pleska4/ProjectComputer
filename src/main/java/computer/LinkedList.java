@@ -20,9 +20,9 @@ public class LinkedList<T> {
         return value;
     }
 
-    public void printList(LinkedList<T> node) {
-        System.out.println("Node is " + node.getValue());
-        if (node.getNext() != null) printList(node.getNext());
+    public void printList(LinkedList<T> note) {
+        System.out.println("Note is " + note.getValue());
+        if (note.getNext() != null) printList(note.getNext());
     }
 
 }

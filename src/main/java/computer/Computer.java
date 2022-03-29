@@ -31,6 +31,12 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
         this.mouse = mouse;
     }
 
+    public Computer(String nameComputer) {
+        this.nameComputer = nameComputer;
+
+    }
+
+
     public void setNameComputer(String nameComputer) {
         this.nameComputer = nameComputer;
     }
