@@ -1,4 +1,5 @@
 package main.java.computer;
+import main.java.computer.Computer;
 
 import java.util.Objects;
 

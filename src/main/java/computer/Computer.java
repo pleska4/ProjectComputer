@@ -1,7 +1,9 @@
 package main.java.computer;
-
-
-import main.java.computer.interfaces.*;
+import main.java.computer.interfaces.Troubleshootingable;
+import main.java.computer.interfaces.ScanIdable;
+import main.java.computer.interfaces.ISwitchNetwork;
+import main.java.computer.interfaces.IPowerOn;
+import main.java.computer.interfaces.Supportable;
 
 
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {

@@ -1,6 +1,7 @@
 package main.java.computer;
 
 import java.util.Objects;
+import main.java.computer.Computer;
 
 public class Laptop extends Computer {
     String nameUserLaptop;
