@@ -3,6 +3,8 @@ import main.java.computer.*;
 import main.java.computer.exceptions.VolumeMemoryException;
 import main.java.computer.exceptions.WeigthMonoblockExeption;
 import main.java.computer.interfaces.*;
+import main.java.computer.myLinkedList.MyLinkedList;
+
 import java.util.*;
 import java.util.LinkedList;
 
@@ -17,8 +19,19 @@ public class Main {
         list.add("Nemiga");
         list.add("Mac");
         list.add("HP");
-        list.remove();
+        list.remove("HP");
         System.out.println("After removing the head.." + list.clone());
+
+        //add MyLinkedList
+        MyLinkedList test = new MyLinkedList();
+        test.add(150);
+        test.add(850);
+        test.add(789);
+        System.out.println(test);
+        System.out.println(test.get(0));
+        test.remove(0);
+        System.out.println(test);
+
 
         // add HashMap
         HashMap<Integer, String> serialNumberAndModelComputer = new HashMap<>();
@@ -36,7 +49,11 @@ public class Main {
             System.out.println(entry);
         }
 
-        //ADD STACK
+
+        //use ArrayList in Email
+        EMail massage = new EMail("Letter for All", "15");
+        System.out.println(massage.sizeBoxLetters());
+        ///ADD STACK
 
         //  create computer in office
         Stack<Mouse> office = new Stack<>();
@@ -111,9 +128,7 @@ public class Main {
         SystemUnit mySystemUnit = new SystemUnit();
         mySystemUnit.summMemory();
 
-        //use ArrayList in Email
-        EMail massage = new EMail("Letter for All", "15");
-        System.out.println(massage.sizeBoxLetters());
+
     }
 }
 

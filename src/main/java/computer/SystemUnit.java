@@ -93,8 +93,8 @@ public class SystemUnit {
         Scanner sddd = new Scanner(System.in);
         System.out.print("Add volume SDD: ");
         int sdd = sddd.nextInt();
-        if (sdd<=0){
-            throw new VolumeMemoryException("Value of SDD should be over 1! ");
+        if (sdd<=0|sdd>=5000){
+            throw new VolumeMemoryException("Value of SDD should be from 1 to 5000!  ");
         }
         int summ = sdd+hdd;
         System.out.println ("Total memory of your SystemUnit " + summ);
