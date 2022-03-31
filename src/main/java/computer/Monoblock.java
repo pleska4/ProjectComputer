@@ -1,30 +1,33 @@
 package main.java.computer;
 
+import main.java.computer.Computer;
+
+
 import main.java.computer.exceptions.WeigthMonoblockExeption;
 
 import java.util.Objects;
 
 public class Monoblock extends Computer {
-    private int weightMonoblock;
+    private final int weightMonoblock;
     private final int COSTMONOBLOCK = 10000; // Final variable
 
     public Monoblock(int weightMonoblock) {
         this.weightMonoblock = weightMonoblock;
     }
 
-    public void monoblockComparison(){
-    Monoblock herMonoblok = new Monoblock(100);
-    Monoblock ourMonoblok = new Monoblock(250);
-    boolean otvet = ourMonoblok.toString().equals(herMonoblok.toString());
+    public void monoblockComparison() {
+        Monoblock herMonoblok = new Monoblock(100);
+        Monoblock ourMonoblok = new Monoblock(250);
+        boolean otvet = ourMonoblok.toString().equals(herMonoblok.toString());
         if (!otvet) {
-        try {
-            throw new WeigthMonoblockExeption("Monobloks are different!");
-        } catch (WeigthMonoblockExeption e) {
-            e.printStackTrace();
+            try {
+                throw new WeigthMonoblockExeption("Monobloks are different!");
+            } catch (WeigthMonoblockExeption e) {
+                e.printStackTrace();
+            }
         }
-    }
 
-}
+    }
 
     @Override
     public void display(int size) {
@@ -39,11 +42,6 @@ public class Monoblock extends Computer {
     @Override
     public void costComputer(int cost) {
         System.out.println("Class cost of Monoblock is premium class and cost " + cost);
-    }
-
-    public String toString() {
-        return "Massa monobloka: " + weightMonoblock + "Cena monobloka: " + COSTMONOBLOCK;
-
     }
 
     @Override
@@ -80,6 +78,19 @@ public class Monoblock extends Computer {
     public void support() {
         System.out.println("My support is from Tesla");
 
+    }
+
+    public int getWeightMonoblock() {
+        return weightMonoblock;
+    }
+
+    public int getCOSTMONOBLOCK() {
+        return COSTMONOBLOCK;
+    }
+
+    @Override
+    public String toString() {
+        return "weightMonoblock=" + weightMonoblock;
     }
 }
 
