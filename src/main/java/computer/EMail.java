@@ -29,6 +29,11 @@ public class EMail {
         return boxLetters.size();
     }
 
+    @Override
+    public String toString() {
+        return "letterSent=" + letterSent ;
+    }
+
     public void setBodyLetter(String bodyLetter) {
         this.bodyLetter = bodyLetter;
     }
