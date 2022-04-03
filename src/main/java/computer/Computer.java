@@ -10,7 +10,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     private static String nameComputer; //use static variable
     private String ipComputer;
     private String osComputer;
-    private Mouse mouse;
+    private main.java.computer.Mouse mouse;
     private Printer printer;
     private SystemUnit systemUnit;
     private EMail eMail;
