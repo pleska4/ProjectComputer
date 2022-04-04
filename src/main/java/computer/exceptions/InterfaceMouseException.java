@@ -1,4 +1,4 @@
-package main.java.computer.exceptions;
+package computer.exceptions;
 
 public class InterfaceMouseException extends Exception{
     public InterfaceMouseException() {

@@ -1,4 +1,4 @@
-package main.java.computer.exceptions;
+package computer.exceptions;
 
 public class SupportException extends Exception{
     public SupportException() {

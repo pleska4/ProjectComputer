@@ -1,4 +1,4 @@
-package main.java.computer;
+package computer;
 
 public class Monitor {
     private String modelMonitor;

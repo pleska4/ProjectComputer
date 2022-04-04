@@ -1,4 +1,4 @@
-package main.java.computer;
+package computer;
 import java.util.ArrayList;
 
 public class EMail {

@@ -1,14 +1,6 @@
-package main.java.computer;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+package computer;
 
 import java.util.Objects;
-import main.java.computer.Computer;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Laptop extends Computer {
     String nameUserLaptop;

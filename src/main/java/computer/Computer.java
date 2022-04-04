@@ -1,13 +1,6 @@
-package main.java.computer;
-import main.java.computer.interfaces.Troubleshootingable;
-import main.java.computer.interfaces.ScanIdable;
-import main.java.computer.interfaces.ISwitchNetwork;
-import main.java.computer.interfaces.IPowerOn;
-import main.java.computer.interfaces.Supportable;
-import main.java.computer.Printer;
-import main.java.computer.Monitor;
-import main.java.computer.EMail;
-import main.java.computer.Mouse;
+package computer;
+
+import computer.interfaces.*;
 
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {
     private static String nameComputer; //use static variable
@@ -15,7 +8,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     private String osComputer;
     private Mouse mouse;
     private Printer printer;
-    private main.java.computer.SystemUnit systemUnit;
+    private SystemUnit systemUnit;
     private EMail eMail;
     private Monitor monitor;
 
@@ -62,7 +55,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
         this.systemUnit = systemUnit;
     }
 
-    public void seteMail(EMail eMail) {
+    public void setMail(EMail eMail) {
         this.eMail = eMail;
     }
 
@@ -94,7 +87,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
         return systemUnit;
     }
 
-    public EMail geteMail() {
+    public EMail getMail() {
         return eMail;
     }
 

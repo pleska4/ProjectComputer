@@ -1,10 +1,10 @@
-package main.java.computer;
-import main.java.computer.Computer;
-import main.java.computer.exceptions.WeigthMonoblockExeption;
-import java.util.Objects;
-import org.apache.logging.log4j.Level;
+package computer;
+
+import computer.exceptions.WeigthMonoblockExeption;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Objects;
 
 public class Monoblock extends Computer {
     private final int weightMonoblock;

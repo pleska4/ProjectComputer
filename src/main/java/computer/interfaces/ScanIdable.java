@@ -1,4 +1,4 @@
-package main.java.computer.interfaces;
+package computer.interfaces;
 
 public interface ScanIdable {
     void scanIdable (String iD);

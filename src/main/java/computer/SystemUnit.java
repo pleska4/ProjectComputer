@@ -1,6 +1,6 @@
-package main.java.computer;
+package computer;
 
-import main.java.computer.exceptions.VolumeMemoryException;
+import computer.exceptions.VolumeMemoryException;
 
 import java.util.Scanner;
 

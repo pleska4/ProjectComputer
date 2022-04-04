@@ -1,4 +1,4 @@
-package main.java.computer.interfaces;
+package computer.interfaces;
 
 public interface ISwitchNetwork {
     void switchNetwork();

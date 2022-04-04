@@ -1,4 +1,4 @@
-package main.java.computer;
+package computer;
 
 public class Printer {
     private String modelPrinter;
