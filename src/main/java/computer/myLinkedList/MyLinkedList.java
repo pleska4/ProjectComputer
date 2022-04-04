@@ -1,4 +1,4 @@
-package main.java.computer.myLinkedList;
+package computer.myLinkedList;
 
 import java.util.Arrays;
 

@@ -4,15 +4,18 @@ import main.java.computer.interfaces.ScanIdable;
 import main.java.computer.interfaces.ISwitchNetwork;
 import main.java.computer.interfaces.IPowerOn;
 import main.java.computer.interfaces.Supportable;
-
+import main.java.computer.Printer;
+import main.java.computer.Monitor;
+import main.java.computer.EMail;
+import main.java.computer.Mouse;
 
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {
     private static String nameComputer; //use static variable
     private String ipComputer;
     private String osComputer;
-    private main.java.computer.Mouse mouse;
+    private Mouse mouse;
     private Printer printer;
-    private SystemUnit systemUnit;
+    private main.java.computer.SystemUnit systemUnit;
     private EMail eMail;
     private Monitor monitor;
 

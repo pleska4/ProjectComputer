@@ -5,7 +5,7 @@ public class Printer {
     private int summPages;
     private int timeResource;
 
-    public Printer(String modelPrinter, int i, int i1) {
+    public Printer(String modelPrinter, int summPages, int timeResource) {
         this.modelPrinter = modelPrinter;
         this.summPages = summPages;
         this.timeResource = timeResource;

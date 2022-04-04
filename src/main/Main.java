@@ -4,7 +4,6 @@ import main.java.computer.exceptions.VolumeMemoryException;
 import main.java.computer.exceptions.WeigthMonoblockExeption;
 import main.java.computer.interfaces.*;
 import main.java.computer.myLinkedList.MyLinkedList;
-
 import java.util.*;
 import java.util.LinkedList;
 
