@@ -1,4 +1,3 @@
-package main;
 import computer.*;
 import computer.exceptions.VolumeMemoryException;
 import computer.exceptions.WeigthMonoblockExeption;
@@ -16,7 +15,8 @@ public class Main {
 
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
 
-        final Logger LOGGER = LogManager.getLogger();
+        final Logger logger = LogManager.getLogger();
+
         //add LinkedList
         LinkedList<String> list = new LinkedList<String>();
         list.add("Pentium");
@@ -24,31 +24,31 @@ public class Main {
         list.add("Mac");
         list.add("HP");
         list.remove("HP");
-        LOGGER.info("After removing the head.." + list.clone());
+        logger.log(Level.INFO,"After removing the head.." + list.clone());
 
         //add MyLinkedList
         MyLinkedList test = new MyLinkedList();
         test.add(150);
         test.add(850);
         test.add(789);
-        LOGGER.info(test);
-        LOGGER.info(test.get(0));
+        System.out.println(test);
+        System.out.println(test.get(0));
         test.remove(0);
-        LOGGER.info(test);
+        System.out.println(test);
 
 
         // add HashMap
-        HashMap<Integer, String> serialNumberAndModelComputer = new HashMap<>();
+        HashMap <Integer, String> serialNumberAndModelComputer = new HashMap<>();
         serialNumberAndModelComputer.put(14525854, "Lenovo Legion 5 ");
         serialNumberAndModelComputer.put(85975623, "Lenovo L 3");
         serialNumberAndModelComputer.put(74152658, " Lenovo IdeaPad 3");
         serialNumberAndModelComputer.put(89565652, "HP 45100");
         serialNumberAndModelComputer.put(41252521, "HP4310");
-        LOGGER.info(serialNumberAndModelComputer.containsKey(7452254)); //check object in map
+        System.out.println(serialNumberAndModelComputer.containsKey(7452254)); //check object in map
         String legion = serialNumberAndModelComputer.get(14525854); //get object by key
-        LOGGER.info(legion);
+        System.out.println(legion);
         serialNumberAndModelComputer.remove(85975623); //delete object by key
-        LOGGER.info(serialNumberAndModelComputer);
+        System.out.println(serialNumberAndModelComputer);
         for (Map.Entry entry : serialNumberAndModelComputer.entrySet()) {
             System.out.println(entry);
         }
