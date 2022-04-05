@@ -1,15 +1,10 @@
 package computer;
-
 import computer.exceptions.WeigthMonoblockExeption;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.util.Objects;
 
 public class Monoblock extends Computer {
     private final int weightMonoblock;
     private final int COSTMONOBLOCK = 10000; // Final variable
-    private static final Logger logger = LogManager.getLogger();
 
     public Monoblock(int weightMonoblock) {
         this.weightMonoblock = weightMonoblock;

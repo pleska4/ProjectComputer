@@ -12,10 +12,9 @@ import org.apache.logging.log4j.Logger;
 
 
 public class Main {
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
-
-        final Logger logger = LogManager.getLogger();
 
         //add LinkedList
         LinkedList<String> list = new LinkedList<String>();
@@ -24,17 +23,17 @@ public class Main {
         list.add("Mac");
         list.add("HP");
         list.remove("HP");
-        logger.log(Level.INFO,"After removing the head.." + list.clone());
+        LOGGER.info("After removing the head.." + list.clone());
 
         //add MyLinkedList
         MyLinkedList test = new MyLinkedList();
         test.add(150);
         test.add(850);
         test.add(789);
-        System.out.println(test);
-        System.out.println(test.get(0));
+        LOGGER.info(test);
+        LOGGER.info(test.get(0));
         test.remove(0);
-        System.out.println(test);
+        LOGGER.info(test);
 
 
         // add HashMap
@@ -44,19 +43,19 @@ public class Main {
         serialNumberAndModelComputer.put(74152658, " Lenovo IdeaPad 3");
         serialNumberAndModelComputer.put(89565652, "HP 45100");
         serialNumberAndModelComputer.put(41252521, "HP4310");
-        System.out.println(serialNumberAndModelComputer.containsKey(7452254)); //check object in map
+        LOGGER.info(serialNumberAndModelComputer.containsKey(7452254)); //check object in map
         String legion = serialNumberAndModelComputer.get(14525854); //get object by key
-        System.out.println(legion);
+        LOGGER.info(legion);
         serialNumberAndModelComputer.remove(85975623); //delete object by key
-        System.out.println(serialNumberAndModelComputer);
+        LOGGER.info(serialNumberAndModelComputer);
         for (Map.Entry entry : serialNumberAndModelComputer.entrySet()) {
-            System.out.println(entry);
+            LOGGER.info(entry);
         }
 
 
         //use ArrayList in Email
         EMail massage = new EMail("Letter for All", "15");
-        System.out.println(massage.sizeBoxLetters());
+        LOGGER.info(massage.sizeBoxLetters());
         ///ADD STACK
 
         //  create computer in office
@@ -76,11 +75,11 @@ public class Main {
         Mouse auto2 = office.pop();
         Mouse auto3 = office.pop();
         Mouse office1 = office.peek();
-        System.out.println("Which mice go out from office?");
-        System.out.println(auto1);
-        System.out.println(auto2);
-        System.out.println(auto3);
-        System.out.println(office1);
+        LOGGER.info("Which mice go out from office?");
+        LOGGER.info(auto1);
+        LOGGER.info(auto2);
+        LOGGER.info(auto3);
+        LOGGER.info(office1);
         // end of stack
 
         // ADD QUEUE
@@ -88,7 +87,7 @@ public class Main {
         myPriorityQueue.add("Computer Lenovo");
         myPriorityQueue.add("Computer HP");
         myPriorityQueue.add("Computer LG");
-        System.out.println(myPriorityQueue);
+        LOGGER.info(myPriorityQueue);
 
 
         Server myServer = new Server(100, 500, 25000);
