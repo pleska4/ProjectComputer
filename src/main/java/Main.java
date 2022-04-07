@@ -1,4 +1,5 @@
 import computer.*;
+import computer.enums.TypeLaptop;
 import computer.exceptions.VolumeMemoryException;
 import computer.exceptions.WeigthMonoblockExeption;
 import computer.interfaces.*;
@@ -10,11 +11,30 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static computer.enums.TypeLaptop.*;
+
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
+
+        TypeLaptop laptop = DELL;
+        switch (laptop) {
+            case DELL:
+                System.out.println("Your laptop type is DELL!");
+                break;
+            case HP:
+                System.out.println("Your laptop type is HP!");
+                break;
+            case FUJITSU:
+                System.out.println("Your laptop type is Fujitsu!");
+                break;
+            case LENOVO:
+                System.out.println("Your laptop type is Lenovo!");
+                break;
+        }
+
 
         //add LinkedList
         LinkedList<String> list = new LinkedList<String>();
@@ -130,7 +150,6 @@ public class Main {
         //use scanner. Enter memory volume
         SystemUnit mySystemUnit = new SystemUnit();
         mySystemUnit.summMemory();
-
 
     }
 }

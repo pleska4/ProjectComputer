@@ -1,5 +1,7 @@
 package computer;
+
 import computer.exceptions.VolumeMemoryException;
+
 import java.util.Scanner;
 
 public class SystemUnit {
@@ -10,7 +12,7 @@ public class SystemUnit {
     private int sdd;
     private int hdd;
 
-    public SystemUnit(String nameSystemUnit, String procSystemUnit, String cPU, int frequenceCPU, int ssd, int hdd) {
+    public SystemUnit(String nameSystemUnit, String procSystemUnit, String cPU, int frequenceCPU, int sdd, int hdd) {
         this.nameSystemUnit = nameSystemUnit;
         this.procSystemUnit = procSystemUnit;
         this.cPU = cPU;
@@ -28,7 +30,22 @@ public class SystemUnit {
 
     public SystemUnit() {
             }
-
+    public void summMemory() throws VolumeMemoryException {
+        Scanner hddd = new Scanner(System.in);
+        System.out.print("Add volume HDD: ");
+        int hdd = hddd.nextInt();
+        if (hdd<=0){
+            throw new VolumeMemoryException("Value of HDD should be over 1! ");
+        }
+        Scanner sddd = new Scanner(System.in);
+        System.out.print("Add volume SDD: ");
+        int sdd = sddd.nextInt();
+        if (sdd<=0|sdd>=5000){
+            throw new VolumeMemoryException("Value of SDD should be from 1 to 5000!  ");
+        }
+        int summ = sdd+hdd;
+        System.out.println ("Total memory of your SystemUnit " + summ);
+    }
     public void setNameSystemUnit(String nameSystemUnit) {
         this.nameSystemUnit = nameSystemUnit;
     }
@@ -81,20 +98,5 @@ public class SystemUnit {
         int memory = hdd + sdd;
         System.out.println("Memory of Computer: " + memory);
     }
-    public void summMemory() throws VolumeMemoryException {
-        Scanner hddd = new Scanner(System.in);
-        System.out.print("Add volume HDD: ");
-        int hdd = hddd.nextInt();
-        if (hdd<=0){
-            throw new VolumeMemoryException("Value of HDD should be over 1! ");
-        }
-        Scanner sddd = new Scanner(System.in);
-        System.out.print("Add volume SDD: ");
-        int sdd = sddd.nextInt();
-        if (sdd<=0|sdd>=5000){
-            throw new VolumeMemoryException("Value of SDD should be from 1 to 5000!  ");
-        }
-        int summ = sdd+hdd;
-        System.out.println ("Total memory of your SystemUnit " + summ);
-    }
+
 }

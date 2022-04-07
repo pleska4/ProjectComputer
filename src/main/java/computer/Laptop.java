@@ -10,6 +10,13 @@ public class Laptop extends Computer {
         this.nameUserLaptop = nameUserLaptop;
         this.size = size;
     }
+    public enum LaptopByType {
+        HP,
+        LENOVO,
+        PHILIPS,
+        DELL,
+        FUJITSU
+    }
 
     @Override
     public void display(int size) {

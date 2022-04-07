@@ -1,5 +1,4 @@
 package computer;
-
 import computer.interfaces.*;
 
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {
@@ -23,14 +22,14 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     }
 
     public Computer(String nameComputer, String ipComputer, String osComputer, Mouse mouse) {
-        this.nameComputer = nameComputer;
+        Computer.nameComputer = nameComputer;
         this.osComputer = osComputer;
         this.ipComputer = ipComputer;
         this.mouse = mouse;
     }
 
     public Computer(String nameComputer) {
-        this.nameComputer = nameComputer;
+        Computer.nameComputer = nameComputer;
 
     }
 
