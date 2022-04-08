@@ -1,6 +1,7 @@
 package computer;
 import computer.interfaces.*;
 
+
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {
     private static String nameComputer; //use static variable
     private String ipComputer;

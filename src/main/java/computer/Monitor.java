@@ -1,6 +1,9 @@
 package computer;
 
+import org.apache.logging.log4j.LogManager;
+
 public class Monitor {
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private String modelMonitor;
     private int diagonalMonitor;
     private boolean isConnectorHDMI;
@@ -64,9 +67,9 @@ public class Monitor {
     public void offMonitor(boolean monitorOff) {
 
         if (monitorOff == true)
-            System.out.println("MonitorOFF!!!");
+            LOGGER.info("MonitorOFF!!!");
         else
-            System.out.println("MonitorON!!!");
+            LOGGER.info("MonitorON!!!");
 
     }
 

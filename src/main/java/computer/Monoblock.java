@@ -1,5 +1,7 @@
 package computer;
+
 import computer.exceptions.WeigthMonoblockExeption;
+
 import java.util.Objects;
 
 public class Monoblock extends Computer {

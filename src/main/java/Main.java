@@ -19,22 +19,6 @@ public class Main {
 
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
 
-        TypeLaptop laptop = DELL;
-        switch (laptop) {
-            case DELL:
-                System.out.println("Your laptop type is DELL!");
-                break;
-            case HP:
-                System.out.println("Your laptop type is HP!");
-                break;
-            case FUJITSU:
-                System.out.println("Your laptop type is Fujitsu!");
-                break;
-            case LENOVO:
-                System.out.println("Your laptop type is Lenovo!");
-                break;
-        }
-
 
         //add LinkedList
         LinkedList<String> list = new LinkedList<String>();
@@ -115,7 +99,7 @@ public class Main {
         myServer.costComputer(1500);
         myServer.network("LAN 100");
 
-        System.out.println(myServer);
+        LOGGER.info(myServer);
 
         Laptop hisLaptop = new Laptop("Vasiliy", 1520);
         System.out.println(hisLaptop);

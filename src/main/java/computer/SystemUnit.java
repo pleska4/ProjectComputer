@@ -1,7 +1,6 @@
 package computer;
 
 import computer.exceptions.VolumeMemoryException;
-
 import java.util.Scanner;
 
 public class SystemUnit {

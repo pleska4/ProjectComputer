@@ -1,8 +1,12 @@
 package computer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Objects;
 
 public class Server extends Computer {
+    private static final Logger LOGGER = LogManager.getLogger();
     private int numberOfConnections;
     private int size;
     private int cost;
@@ -50,26 +54,21 @@ public class Server extends Computer {
 
     @Override
     public void iPowerOn() {
-        System.out.println("Server's Power - ON");
+        LOGGER.info("Server's Power - ON");
 
     }
-
     @Override
     public void switchNetwork() {
-        System.out.println("You interface for Network is LAN");
-
+        LOGGER.info("You interface for Network is LAN");
     }
-
     @Override
     public void scanIdable(String iD) {
-        System.out.println("Your ID: " + iD);
-
+        LOGGER.info("Your ID: " + iD);
     }
 
     @Override
     public void support() {
-        System.out.println("My support is from CISCO");
-
+        LOGGER.info("My support from CISCO");
     }
 }
 

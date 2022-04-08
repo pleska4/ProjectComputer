@@ -1,6 +1,10 @@
 package computer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Mouse {
+    private static final Logger LOGGER = LogManager.getLogger();
     private String mouseModel;
     private String interfaceMouse;
 
@@ -39,8 +43,8 @@ public class Mouse {
         }
 
     public final void click() {
-        System.out.println("Interface of Mouse: " + interfaceMouse);
-        System.out.println("Unknown interface");
+        LOGGER.info("Interface of Mouse: " + interfaceMouse);
+        LOGGER.info("Unknown interface");
     }
 }
 
