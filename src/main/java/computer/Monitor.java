@@ -1,5 +1,6 @@
 package computer;
 
+import computer.enums.TypeOfMonitor;
 import org.apache.logging.log4j.LogManager;
 
 public class Monitor {
@@ -9,6 +10,7 @@ public class Monitor {
     private boolean isConnectorHDMI;
     private boolean isConnectorVDI;
     private boolean isMonitorOff;
+    private TypeOfMonitor typeOfMonitor;
 
     public Monitor(String modelMonitor, int diagonalMonitor, boolean isConnectorHDMI, boolean isConnectorVDI, boolean isMonitorOff) {
         this.modelMonitor = modelMonitor;
@@ -28,6 +30,8 @@ public class Monitor {
         this.diagonalMonitor = 17;
     }
 
+
+
     public void setModelMonitor(String modelMonitor) {
         this.modelMonitor = modelMonitor;
     }
@@ -43,6 +47,7 @@ public class Monitor {
     public void setConnectorVDI(boolean connectorVDI) {
         this.isConnectorVDI = connectorVDI;
     }
+
 
     public String getmodelMonitor() {
         return modelMonitor;

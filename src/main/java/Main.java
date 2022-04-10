@@ -1,5 +1,6 @@
 import computer.*;
 import computer.enums.TypeLaptop;
+import computer.enums.TypeOfMonitor;
 import computer.exceptions.VolumeMemoryException;
 import computer.exceptions.WeigthMonoblockExeption;
 import computer.interfaces.*;
@@ -11,6 +12,8 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.sql.PooledConnection;
+
 import static computer.enums.TypeLaptop.*;
 
 
@@ -19,6 +22,8 @@ public class Main {
 
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
 
+        TypeOfMonitor ourMonitor = TypeOfMonitor.TFTTN;
+        ourMonitor.supportMonitor(ourMonitor);
 
         //add LinkedList
         LinkedList<String> list = new LinkedList<String>();
