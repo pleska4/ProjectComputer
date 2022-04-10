@@ -25,8 +25,12 @@ public class Main {
 
         //calculate the numbers of the unique words
         File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");
+        File file2 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileIN.txt");
         String str = FileUtils.readFileToString(file1, "UTF-8");
-        System.out.println(StringUtils.countMatches (str, " "));
+        int numbersOfWords = StringUtils.countMatches (str, " ") +1;
+        FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
+        LOGGER.info("Numbers of words:"+ numbersOfWords);
+
 
         // Use Enums
         TypeOfMonitor ourMonitor = TypeOfMonitor.TFTTN;
