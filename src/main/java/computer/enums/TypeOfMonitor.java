@@ -32,7 +32,7 @@ public enum TypeOfMonitor {
                 System.out.println("Your monitor supprt company DASS");
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + typeOfMonitor);
+                throw new IllegalStateException("Your type of Monitor is not support: " + typeOfMonitor);
         }
     }
     public TypeOfMonitor getTypeOfMonitor() {

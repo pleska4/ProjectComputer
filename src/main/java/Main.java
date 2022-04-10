@@ -1,27 +1,34 @@
 import computer.*;
-import computer.enums.TypeLaptop;
 import computer.enums.TypeOfMonitor;
 import computer.exceptions.VolumeMemoryException;
 import computer.exceptions.WeigthMonoblockExeption;
-import computer.interfaces.*;
+import computer.interfaces.IPowerOn;
+import computer.interfaces.ScanIdable;
+import computer.interfaces.Supportable;
 import computer.myLinkedList.MyLinkedList;
-import java.util.*;
-import java.util.LinkedList;
-import java.util.*;
-import org.apache.logging.log4j.Level;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.sql.PooledConnection;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
-import static computer.enums.TypeLaptop.*;
 
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption {
+    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException {
 
+        //calculate the numbers of the unique words
+        File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");
+        String str = FileUtils.readFileToString(file1, "UTF-8");
+        System.out.println(StringUtils.countMatches (str, " "));
+
+        // Use Enums
         TypeOfMonitor ourMonitor = TypeOfMonitor.TFTTN;
         ourMonitor.supportMonitor(ourMonitor);
 

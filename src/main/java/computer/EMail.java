@@ -1,6 +1,7 @@
 package computer;
 import java.util.ArrayList;
 
+
 public class EMail {
     private boolean letterSent;
     private boolean letterDelivered;
