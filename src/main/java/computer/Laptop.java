@@ -1,31 +1,28 @@
 package computer;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Objects;
 
 public class Laptop extends Computer {
     String nameUserLaptop;
     int size;
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public Laptop(String nameUserLaptop, int size) {
         this.nameUserLaptop = nameUserLaptop;
         this.size = size;
     }
-    public enum LaptopByType {
-        HP,
-        LENOVO,
-        PHILIPS,
-        DELL,
-        FUJITSU
-    }
 
     @Override
     public void display(int size) {
-        System.out.println("Size display of Laptop: " + size + " inches");
+        LOGGER.info("Size display of Laptop: " + size + " inches");
     }
 
     @Override
     public void network(String interfaceNetwork) {
-        System.out.println("Laptop connected to the network " + interfaceNetwork);
+        LOGGER.info("Laptop connected to the network " + interfaceNetwork);
     }
 
     @Override
@@ -61,13 +58,13 @@ public class Laptop extends Computer {
 
     @Override
     public void scanIdable(String iD) {
-        System.out.println("Your ID: " + iD);
+        LOGGER.info("Your ID: " + iD);
 
     }
 
     @Override
     public void support() {
-        System.out.println("My support is from Samsung");
+        LOGGER.info("My support is from Samsung");
 
     }
 }

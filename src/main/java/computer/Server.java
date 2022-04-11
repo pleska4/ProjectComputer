@@ -23,7 +23,7 @@ public class Server extends Computer {
 
     @Override
     public void network(String interfaceNetwork) {
-        System.out.println("Server connected to the network " + interfaceNetwork);
+        LOGGER.info("Server connected to the network " + interfaceNetwork);
 
     }
 

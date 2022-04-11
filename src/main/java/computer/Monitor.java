@@ -1,9 +1,11 @@
 package computer;
 
 import computer.enums.TypeOfMonitor;
+import computer.interfaces.Supportable;
 import org.apache.logging.log4j.LogManager;
 
-public class Monitor {
+
+public class Monitor implements Supportable {
     private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private String modelMonitor;
     private int diagonalMonitor;
@@ -11,6 +13,7 @@ public class Monitor {
     private boolean isConnectorVDI;
     private boolean isMonitorOff;
     private TypeOfMonitor typeOfMonitor;
+
 
     public Monitor(String modelMonitor, int diagonalMonitor, boolean isConnectorHDMI, boolean isConnectorVDI, boolean isMonitorOff) {
         this.modelMonitor = modelMonitor;
@@ -31,7 +34,6 @@ public class Monitor {
     }
 
 
-
     public void setModelMonitor(String modelMonitor) {
         this.modelMonitor = modelMonitor;
     }
@@ -47,7 +49,6 @@ public class Monitor {
     public void setConnectorVDI(boolean connectorVDI) {
         this.isConnectorVDI = connectorVDI;
     }
-
 
     public String getmodelMonitor() {
         return modelMonitor;
@@ -77,5 +78,12 @@ public class Monitor {
             LOGGER.info("MonitorON!!!");
 
     }
+    @Override
+    public void support() {
 
+    }
+    @Override
+    public String mySupport() {
+        return Supportable.super.mySupport();
+    }
 }

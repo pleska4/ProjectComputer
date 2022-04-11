@@ -1,4 +1,7 @@
 package computer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 
 
@@ -8,6 +11,7 @@ public class EMail {
     private String signatureLetter;
     private String headerLetter;
     private String bodyLetter;
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public EMail(String headerLetter, String bodyLetter, String signatureLetter) {
         this.headerLetter = headerLetter;

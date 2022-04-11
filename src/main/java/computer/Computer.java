@@ -1,5 +1,7 @@
 package computer;
 import computer.interfaces.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {
@@ -11,6 +13,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     private SystemUnit systemUnit;
     private EMail eMail;
     private Monitor monitor;
+    private static final Logger LOGGER = LogManager.getLogger();
 
     // add static block
     static {
@@ -100,13 +103,13 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     }
 
     public void showComputerInfo() {
-        System.out.println("Name Computer  : " + nameComputer + "\n" + "OS Computer: " + osComputer + "\n" + "IP Computer " + ipComputer);
+        LOGGER.info("Name Computer  : " + nameComputer + "\n" + "OS Computer: " + osComputer + "\n" + "IP Computer " + ipComputer);
     }
 
     public void sendLetterForJack(String addressEmailAuthor, String addressEmailRecipient) {
 
         EMail newLetter = new EMail("For Jack", "I love you", "Your wife Mary");
-        System.out.println("AddressAuthor: " + addressEmailAuthor + newLetter.letterText() + "\n" + "AddressRecipient: " + addressEmailRecipient);
+        LOGGER.info("AddressAuthor: " + addressEmailAuthor + newLetter.letterText() + "\n" + "AddressRecipient: " + addressEmailRecipient);
     }
 
 

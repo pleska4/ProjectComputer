@@ -1,7 +1,11 @@
 package computer;
 
 import computer.exceptions.VolumeMemoryException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
+
 
 public class SystemUnit {
     private String nameSystemUnit;
@@ -10,6 +14,8 @@ public class SystemUnit {
     private double frequenceCPU;
     private int sdd;
     private int hdd;
+    private static final Logger LOGGER = LogManager.getLogger();
+
 
     public SystemUnit(String nameSystemUnit, String procSystemUnit, String cPU, int frequenceCPU, int sdd, int hdd) {
         this.nameSystemUnit = nameSystemUnit;
@@ -31,13 +37,13 @@ public class SystemUnit {
             }
     public void summMemory() throws VolumeMemoryException {
         Scanner hddd = new Scanner(System.in);
-        System.out.print("Add volume HDD: ");
+        LOGGER.info("Add volume HDD: ");
         int hdd = hddd.nextInt();
         if (hdd<=0){
             throw new VolumeMemoryException("Value of HDD should be over 1! ");
         }
         Scanner sddd = new Scanner(System.in);
-        System.out.print("Add volume SDD: ");
+        LOGGER.info("Add volume SDD: ");
         int sdd = sddd.nextInt();
         if (sdd<=0|sdd>=5000){
             throw new VolumeMemoryException("Value of SDD should be from 1 to 5000!  ");
@@ -95,7 +101,7 @@ public class SystemUnit {
 
     public void memorySystemUnit() {
         int memory = hdd + sdd;
-        System.out.println("Memory of Computer: " + memory);
+        LOGGER.info("Memory of Computer: " + memory);
     }
 
 }

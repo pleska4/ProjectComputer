@@ -31,6 +31,8 @@ public class Main {
         FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
         LOGGER.info("Numbers of words:"+ numbersOfWords);
 
+        Monitor monik = new Monitor("JORE", true);
+        monik.mySupport();
 
         // Use Enums
         TypeOfMonitor ourMonitor = TypeOfMonitor.TFTTN;

@@ -1,12 +1,14 @@
 package computer;
 
 import computer.exceptions.WeigthMonoblockExeption;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.Objects;
 
 public class Monoblock extends Computer {
     private final int weightMonoblock;
     private final int COSTMONOBLOCK = 10000; // Final variable
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public Monoblock(int weightMonoblock) {
         this.weightMonoblock = weightMonoblock;
@@ -62,7 +64,7 @@ public class Monoblock extends Computer {
 
     @Override
     public void switchNetwork() {
-        System.out.println("You interface for Network are LAN+WIFI");
+        LOGGER.info("You interface for Network are LAN+WIFI");
     }
 
     @Override

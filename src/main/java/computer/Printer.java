@@ -1,9 +1,12 @@
 package computer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Printer {
     private String modelPrinter;
     private int summPages;
     private int timeResource;
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public Printer(String modelPrinter, int summPages, int timeResource) {
         this.modelPrinter = modelPrinter;
@@ -57,7 +60,7 @@ public class Printer {
 
     public static void costPrinter(int costPaper, int costSupport) {
         int summ = costPaper * 150 + costSupport * 200;
-        System.out.println("Cost of printer: " + summ);
+        LOGGER.info("Cost of printer: " + summ);
     }
 }
 
