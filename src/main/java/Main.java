@@ -2,6 +2,8 @@ import computer.*;
 import computer.enums.TypeOfMonitor;
 import computer.exceptions.VolumeMemoryException;
 import computer.exceptions.WeigthMonoblockExeption;
+import computer.functionalInterfaces.IAddVolumeHDD;
+import computer.functionalInterfaces.ICalculateUsers;
 import computer.interfaces.IPowerOn;
 import computer.interfaces.ScanIdable;
 import computer.interfaces.Supportable;
@@ -10,7 +12,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -22,6 +23,15 @@ public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException {
+
+        // Use Lamba
+        IAddVolumeHDD addVolumeHDD;
+        addVolumeHDD = (volume) -> volume*2;
+        int result = addVolumeHDD.add(150);
+        LOGGER.info(result);
+        
+
+        
 
         //calculate the numbers of the unique words
         File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");

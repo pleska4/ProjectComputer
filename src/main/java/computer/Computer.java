@@ -1,10 +1,14 @@
 package computer;
+
+import computer.functionalInterfaces.IAddVolumeHDD;
+import computer.functionalInterfaces.ICalculateUsers;
+import computer.functionalInterfaces.INamingYourDevice;
 import computer.interfaces.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
-public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable {
+public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable, ICalculateUsers, INamingYourDevice, IAddVolumeHDD {
     private static String nameComputer; //use static variable
     private String ipComputer;
     private String osComputer;
@@ -14,6 +18,9 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     private EMail eMail;
     private Monitor monitor;
     private static final Logger LOGGER = LogManager.getLogger();
+
+
+
 
     // add static block
     static {
@@ -114,8 +121,8 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
 
 
     public void sendLetter(String addressEmailAuthor, String addressEmailRecipient, EMail eMail) {
-        System.out.println("Author of letter: " + eMail.getSignatureLetter());
-        System.out.println("AddressAuthor: " + addressEmailAuthor + "\n" + "AddressRecipient: " + addressEmailRecipient);
+        LOGGER.info("Author of letter: " + eMail.getSignatureLetter());
+        LOGGER.info("AddressAuthor: " + addressEmailAuthor + "\n" + "AddressRecipient: " + addressEmailRecipient);
     }
 
     public abstract void display(int size);
@@ -124,7 +131,10 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
 
     public abstract void costComputer(int cost);
 
+
+    public abstract double add(double volume);
 }
+
 
 
 

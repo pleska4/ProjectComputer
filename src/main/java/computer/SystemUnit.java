@@ -99,7 +99,7 @@ public class SystemUnit {
         return hdd;
     }
 
-    public void memorySystemUnit() {
+    public void memorySystemUnit(int hdd, int sdd) {
         int memory = hdd + sdd;
         LOGGER.info("Memory of Computer: " + memory);
     }

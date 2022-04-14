@@ -44,6 +44,12 @@ public class Monoblock extends Computer {
     }
 
     @Override
+    public double add(double volume) {
+        return 0;
+    }
+
+
+    @Override
     public boolean equals(Object mono) {
         if (this == mono) return true;
         if (!(mono instanceof Monoblock)) return false;
@@ -79,6 +85,11 @@ public class Monoblock extends Computer {
 
     }
 
+    @Override
+    public String mySupport() {
+        return super.mySupport();
+    }
+
     public int getWeightMonoblock() {
         return weightMonoblock;
     }
@@ -90,6 +101,31 @@ public class Monoblock extends Computer {
     @Override
     public String toString() {
         return "weightMonoblock=" + weightMonoblock;
+    }
+
+    @Override
+    public String calculateUsers() {
+        return null;
+    }
+
+    @Override
+    public void gettingName() {
+
+    }
+
+    @Override
+    public String yourDevice(String device) {
+        return super.yourDevice(device);
+    }
+
+    @Override
+    public String mainInstruction() {
+        return super.mainInstruction();
+    }
+
+    @Override
+    public int add(int volume) {
+        return 0;
     }
 }
 

@@ -2,7 +2,7 @@ package computer.functionalInterfaces;
 
 @FunctionalInterface
 public interface ICalculateUsers {
-    int calculate(int users);
+    String calculateUsers();
 
     static String usersOfDevice(int users) {
         return "Users of Devices: "+ users;

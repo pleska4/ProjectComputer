@@ -70,6 +70,25 @@ public class Server extends Computer {
     public void support() {
         LOGGER.info("My support from CISCO");
     }
+
+    @Override
+    public double add(double volume) {
+        return 0;
+    }
+
+    @Override
+    public String calculateUsers() {
+         return null;}
+
+    @Override
+    public void gettingName() {
+
+    }
+
+    @Override
+    public int add(int volume) {
+        return 0;
+    }
 }
 
 

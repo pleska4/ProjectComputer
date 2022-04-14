@@ -27,7 +27,7 @@ public class Laptop extends Computer {
 
     @Override
     public void costComputer(int cost) {
-        System.out.println("Class cost of Laptop is medium class " + cost);
+        LOGGER.info("Class cost of Laptop is medium class " + cost);
     }
 
     @Override
@@ -46,13 +46,13 @@ public class Laptop extends Computer {
 
     @Override
     public void iPowerOn() {
-        System.out.println("Laptop Power - OFF");
+        LOGGER.info("Laptop Power - OFF");
 
     }
 
     @Override
     public void switchNetwork() {
-        System.out.println("You interface for Network is WiFi");
+        LOGGER.info("You interface for Network is WiFi");
 
     }
 
@@ -66,6 +66,40 @@ public class Laptop extends Computer {
     public void support() {
         LOGGER.info("My support is from Samsung");
 
+    }
+
+    @Override
+    public String mySupport() {
+        return super.mySupport();
+    }
+
+    @Override
+    public double add(double volume) {
+        return 0;
+    }
+
+    @Override
+    public String calculateUsers() {
+           return null; }
+
+    @Override
+    public void gettingName() {
+
+    }
+
+    @Override
+    public String yourDevice(String device) {
+        return super.yourDevice(device);
+    }
+
+    @Override
+    public String mainInstruction() {
+        return super.mainInstruction();
+    }
+
+    @Override
+    public int add(int volume) {
+        return 0;
     }
 }
 
