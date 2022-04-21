@@ -72,13 +72,20 @@ public class Server extends Computer {
     }
 
     @Override
+    public String mySupport() {
+        return super.mySupport();
+    }
+
+    @Override
     public double add(double volume) {
         return 0;
     }
 
     @Override
     public String calculateUsers() {
-         return null;}
+        return null;
+    }
+
 
     @Override
     public void gettingName() {
@@ -86,8 +93,38 @@ public class Server extends Computer {
     }
 
     @Override
+    public String naming(String i) {
+        return null;
+    }
+
+    @Override
+    public String yourDevice(String device) {
+        return super.yourDevice(device);
+    }
+
+    @Override
     public int add(int volume) {
         return 0;
+    }
+
+    @Override
+    public String calculateUsers(int colNames) {
+        return null;
+    }
+
+    @Override
+    public String mainInstruction() {
+        return super.mainInstruction();
+    }
+
+    @Override
+    public int iCalculateUsers(int colNames) {
+        return 0;
+    }
+
+    @Override
+    public String usersOfDevice(int users) {
+        return super.usersOfDevice(users);
     }
 }
 

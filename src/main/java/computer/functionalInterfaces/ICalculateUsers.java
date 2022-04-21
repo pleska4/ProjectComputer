@@ -2,10 +2,10 @@ package computer.functionalInterfaces;
 
 @FunctionalInterface
 public interface ICalculateUsers {
-    String calculateUsers();
+    int iCalculateUsers (int colNames);
 
-    static String usersOfDevice(int users) {
-        return "Users of Devices: "+ users;
+    default String usersOfDevice(int users) {
+        return "Users of Devices: "+users;
     }
 
 }

@@ -2,8 +2,10 @@ import computer.*;
 import computer.enums.TypeOfMonitor;
 import computer.exceptions.VolumeMemoryException;
 import computer.exceptions.WeigthMonoblockExeption;
+import computer.functionalInterfaces.IAddSummDevices;
 import computer.functionalInterfaces.IAddVolumeHDD;
 import computer.functionalInterfaces.ICalculateUsers;
+import computer.functionalInterfaces.INamingYourDevice;
 import computer.interfaces.IPowerOn;
 import computer.interfaces.ScanIdable;
 import computer.interfaces.Supportable;
@@ -12,9 +14,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 
@@ -24,14 +26,45 @@ public class Main {
 
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException {
 
-        // Use Lamba
+        // Use Lambas
         IAddVolumeHDD addVolumeHDD;
-        addVolumeHDD = (volume) -> volume*2;
+        addVolumeHDD = volume -> volume*2;
         int result = addVolumeHDD.add(150);
         LOGGER.info(result);
-        
 
-        
+        // Use Lambas with default method in functonalInterface
+        ICalculateUsers calculateUsers;
+        calculateUsers= colNames -> colNames+1;
+        int resulting = calculateUsers.iCalculateUsers(500);
+        LOGGER.info(resulting);
+        LOGGER.info(calculateUsers.usersOfDevice(resulting));
+
+        IAddSummDevices<Integer, String> func = (a, v) -> {
+            int summ = 0;
+            for (int i = 0; i<a.length; ++i){
+                if (a[i].equals(v));
+                ++summ;
+            }
+            return summ;
+        };
+        String[] seasons  = new String[4];
+        seasons[0] = "HP";
+        seasons[1] = "LG";
+        seasons[2] = "Horizont";
+        seasons[3] = "NoName";
+        int resultat = func.func(seasons, "LG");
+        LOGGER.info(resultat);
+
+
+
+        INamingYourDevice naming = (i) -> ("Your device name "+i);
+        String nameComputer = naming.naming("HP");
+        LOGGER.info(nameComputer);
+
+
+
+
+
 
         //calculate the numbers of the unique words
         File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");

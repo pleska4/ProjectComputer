@@ -3,10 +3,10 @@ package computer.functionalInterfaces;
 @FunctionalInterface
 public interface INamingYourDevice {
 
-    void gettingName();
-
+    String naming(String i);
 
     default String yourDevice(String device) {
-        return "Your device"+device;
+        return "Your device  "+device;
     }
 }
+

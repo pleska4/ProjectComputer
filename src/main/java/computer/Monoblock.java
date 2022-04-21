@@ -48,6 +48,16 @@ public class Monoblock extends Computer {
         return 0;
     }
 
+    @Override
+    public String calculateUsers() {
+        return null;
+    }
+
+    @Override
+    public String calculateUsers(int colNames) {
+        return null;
+    }
+
 
     @Override
     public boolean equals(Object mono) {
@@ -103,14 +113,16 @@ public class Monoblock extends Computer {
         return "weightMonoblock=" + weightMonoblock;
     }
 
-    @Override
-    public String calculateUsers() {
-        return null;
-    }
+
 
     @Override
     public void gettingName() {
 
+    }
+
+    @Override
+    public String naming(String i) {
+        return null;
     }
 
     @Override
@@ -126,6 +138,16 @@ public class Monoblock extends Computer {
     @Override
     public int add(int volume) {
         return 0;
+    }
+
+    @Override
+    public int iCalculateUsers(int colNames) {
+        return 0;
+    }
+
+    @Override
+    public String usersOfDevice(int users) {
+        return super.usersOfDevice(users);
     }
 }
 

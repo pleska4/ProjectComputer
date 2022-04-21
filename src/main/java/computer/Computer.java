@@ -20,8 +20,6 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     private static final Logger LOGGER = LogManager.getLogger();
 
 
-
-
     // add static block
     static {
         System.out.println("You bought the best device in the world!");
@@ -133,6 +131,12 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
 
 
     public abstract double add(double volume);
+
+    public abstract String calculateUsers();
+
+    public abstract String calculateUsers(int colNames);
+
+    public abstract void gettingName();
 }
 
 

@@ -88,6 +88,11 @@ public class Laptop extends Computer {
     }
 
     @Override
+    public String naming(String i) {
+        return null;
+    }
+
+    @Override
     public String yourDevice(String device) {
         return super.yourDevice(device);
     }
@@ -100,6 +105,21 @@ public class Laptop extends Computer {
     @Override
     public int add(int volume) {
         return 0;
+    }
+
+    @Override
+    public String calculateUsers(int colNames) {
+        return null;
+    }
+
+    @Override
+    public int iCalculateUsers(int colNames) {
+        return 0;
+    }
+
+    @Override
+    public String usersOfDevice(int users) {
+        return super.usersOfDevice(users);
     }
 }
 
