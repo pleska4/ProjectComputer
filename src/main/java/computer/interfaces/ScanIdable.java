@@ -1,10 +1,14 @@
 package computer.interfaces;
 
+import org.apache.logging.log4j.LogManager;
+
 public interface ScanIdable {
+    org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     void scanIdable (String iD);
 
     static void enterPassword() {
-        System.out.println("Enter your password!");
+
+        LOGGER.info("Enter your password!");
     }
 
 }

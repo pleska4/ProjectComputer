@@ -18,7 +18,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -28,51 +28,47 @@ public class Main {
 
         // Use Lambas
         IAddVolumeHDD addVolumeHDD;
-        addVolumeHDD = volume -> volume*2;
+        addVolumeHDD = volume -> volume * 2;
         int result = addVolumeHDD.add(150);
         LOGGER.info(result);
 
         // Use Lambas with default method in functonalInterface
         ICalculateUsers calculateUsers;
-        calculateUsers= colNames -> colNames+1;
+        calculateUsers = colNames -> colNames + 1;
         int resulting = calculateUsers.iCalculateUsers(500);
         LOGGER.info(resulting);
         LOGGER.info(calculateUsers.usersOfDevice(resulting));
 
+        // Use Lambas with generic in functonalInterface
         IAddSummDevices<Integer, String> func = (a, v) -> {
             int summ = 0;
-            for (int i = 0; i<a.length; ++i){
-                if (a[i].equals(v));
+            for (int i = 0; i < a.length; ++i) {
+                if (a[i].equals(v)) ;
                 ++summ;
             }
             return summ;
         };
-        String[] seasons  = new String[4];
-        seasons[0] = "HP";
-        seasons[1] = "LG";
-        seasons[2] = "Horizont";
-        seasons[3] = "NoName";
-        int resultat = func.func(seasons, "LG");
+        String[] model = new String[4];
+        model[0] = "HP";
+        model[1] = "LG";
+        model[2] = "Horizont";
+        model[3] = "NoName";
+        int resultat = func.func(model, "LG");
         LOGGER.info(resultat);
 
 
-
-        INamingYourDevice naming = (i) -> ("Your device name "+i);
+        INamingYourDevice naming = (i) -> ("Your device name " + i);
         String nameComputer = naming.naming("HP");
         LOGGER.info(nameComputer);
-
-
-
-
 
 
         //calculate the numbers of the unique words
         File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");
         File file2 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileIN.txt");
         String str = FileUtils.readFileToString(file1, "UTF-8");
-        int numbersOfWords = StringUtils.countMatches (str, " ") +1;
+        int numbersOfWords = StringUtils.countMatches(str, " ") + 1;
         FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
-        LOGGER.info("Numbers of words:"+ numbersOfWords);
+        LOGGER.info("Numbers of words:" + numbersOfWords);
 
         Monitor monik = new Monitor("JORE", true);
         monik.mySupport();
@@ -82,13 +78,15 @@ public class Main {
         ourMonitor.supportMonitor(ourMonitor);
 
         //add LinkedList
-        LinkedList<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<String>();
         list.add("Pentium");
         list.add("Nemiga");
         list.add("Mac");
         list.add("HP");
         list.remove("HP");
-        LOGGER.info("After removing the head.." + list.clone());
+
+        list = list.stream().map(a -> a + "N").collect(Collectors.toList());
+        LOGGER.info(list);
 
         //add MyLinkedList
         MyLinkedList test = new MyLinkedList();
@@ -102,7 +100,7 @@ public class Main {
 
 
         // add HashMap
-        HashMap <Integer, String> serialNumberAndModelComputer = new HashMap<>();
+        HashMap<Integer, String> serialNumberAndModelComputer = new HashMap<>();
         serialNumberAndModelComputer.put(14525854, "Lenovo Legion 5 ");
         serialNumberAndModelComputer.put(85975623, "Lenovo L 3");
         serialNumberAndModelComputer.put(74152658, " Lenovo IdeaPad 3");
@@ -166,7 +164,6 @@ public class Main {
         System.out.println(hisLaptop);
         hisLaptop.support();
         hisLaptop.scanIdable("4125=6!");
-        hisLaptop.mainInstruction();
         hisLaptop.mainInstruction();
 
         Monoblock mono = new Monoblock(10);

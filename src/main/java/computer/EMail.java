@@ -1,4 +1,5 @@
 package computer;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,7 +36,7 @@ public class EMail {
 
     @Override
     public String toString() {
-        return "letterSent=" + letterSent ;
+        return "letterSent=" + letterSent;
     }
 
     public void setBodyLetter(String bodyLetter) {

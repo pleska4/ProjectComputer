@@ -22,7 +22,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
 
     // add static block
     static {
-        System.out.println("You bought the best device in the world!");
+        LOGGER.info("You bought the best device in the world!");
     }
 
     public Computer() {
@@ -128,7 +128,6 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     public abstract void network(String interfaceNetwork);
 
     public abstract void costComputer(int cost);
-
 
     public abstract double add(double volume);
 

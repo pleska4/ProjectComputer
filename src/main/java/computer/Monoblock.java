@@ -16,31 +16,30 @@ public class Monoblock extends Computer {
 
     public void monoblockComparison() {
         Monoblock herMonoblok = new Monoblock(100);
-        Monoblock ourMonoblok = new Monoblock(250);
-        boolean otvet = ourMonoblok.toString().equals(herMonoblok.toString());
-        if (!otvet) {
+        Monoblock ourMonoblok = new Monoblock(100);
+        boolean answer = ourMonoblok.toString().equals(herMonoblok.toString());
+        if (!answer) {
             try {
                 throw new WeigthMonoblockExeption("Monobloks are different!");
             } catch (WeigthMonoblockExeption e) {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override
     public void display(int size) {
-        System.out.println("Size display of Monoblock: " + size + " inches");
+        LOGGER.info("Size display of Monoblock: " + size + " inches");
     }
 
     @Override
     public void network(String interfaceNetwork) {
-        System.out.println("Monoblock connected to the network " + interfaceNetwork);
+        LOGGER.info("Monoblock connected to the network " + interfaceNetwork);
     }
 
     @Override
     public void costComputer(int cost) {
-        System.out.println("Class cost of Monoblock is premium class and cost " + cost);
+        LOGGER.info("Class cost of Monoblock is premium class and cost " + cost);
     }
 
     @Override
@@ -57,7 +56,6 @@ public class Monoblock extends Computer {
     public String calculateUsers(int colNames) {
         return null;
     }
-
 
     @Override
     public boolean equals(Object mono) {
@@ -112,7 +110,6 @@ public class Monoblock extends Computer {
     public String toString() {
         return "weightMonoblock=" + weightMonoblock;
     }
-
 
 
     @Override

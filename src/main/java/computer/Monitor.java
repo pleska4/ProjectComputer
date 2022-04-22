@@ -1,5 +1,4 @@
 package computer;
-
 import computer.enums.TypeOfMonitor;
 import computer.interfaces.Supportable;
 import org.apache.logging.log4j.LogManager;

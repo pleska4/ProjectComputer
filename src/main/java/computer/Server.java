@@ -18,7 +18,7 @@ public class Server extends Computer {
 
     @Override
     public void display(int size) {
-        System.out.println("Size display of Server: " + size + " inches");
+        LOGGER.info("Size display of Server: " + size + " inches");
     }
 
     @Override
@@ -29,7 +29,8 @@ public class Server extends Computer {
 
     @Override
     public void costComputer(int cost) {
-        System.out.println("Class cost of Server is budget class and cost " + cost);
+
+        LOGGER.info("Class cost of Server is budget class and cost " + cost);
     }
 
     @Override
