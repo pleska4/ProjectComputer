@@ -1,4 +1,6 @@
 package computer.enums;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public enum TypeOfMonitor {
     OLED("OLED"),
@@ -7,6 +9,7 @@ public enum TypeOfMonitor {
     TFTTN("TFTTN"),
     QLED("QLED");
     private String value;
+    private static final Logger LOGGER = LogManager.getLogger();
     private TypeOfMonitor typeOfMonitor;
     TypeOfMonitor(String value) {
         this.value = value;
@@ -17,19 +20,19 @@ public enum TypeOfMonitor {
     public void supportMonitor( TypeOfMonitor typeOfMonitor) {
         switch (typeOfMonitor) {
             case OLED:
-                System.out.println("Your monitor supprt company Zayka");
+                LOGGER.info("Your monitor support company Zayka");
                 break;
             case VA:
-                System.out.println("Your monitor supprt company SW");
+                LOGGER.info("Your monitor supprt company SW");
                 break;
             case IPS:
-                System.out.println("Your monitor may be remove only!");
+                LOGGER.info("Your monitor may be remove only!");
                 break;
             case TFTTN:
-                System.out.println("Your monitor is bad, remove it !");
+                LOGGER.info("Your monitor is bad, remove it !");
                 break;
             case QLED:
-                System.out.println("Your monitor supprt company DASS");
+                LOGGER.info("Your monitor supprt company DASS");
                 break;
             default:
                 throw new IllegalStateException("Your type of Monitor is not support: " + typeOfMonitor);

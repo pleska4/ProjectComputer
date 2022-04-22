@@ -84,8 +84,7 @@ public class Main {
         list.add("Mac");
         list.add("HP");
         list.remove("HP");
-
-        list = list.stream().map(a -> a + "N").collect(Collectors.toList());
+        list = list.stream().map(a -> a + "  Serial of 2022 year").collect(Collectors.toList());
         LOGGER.info(list);
 
         //add MyLinkedList
@@ -115,10 +114,10 @@ public class Main {
             LOGGER.info(entry);
         }
 
-
         //use ArrayList in Email
         EMail massage = new EMail("Letter for All", "15");
         LOGGER.info(massage.sizeBoxLetters());
+
         ///ADD STACK
 
         //  create computer in office
@@ -140,9 +139,7 @@ public class Main {
         Mouse office1 = office.peek();
         LOGGER.info("Which mice go out from office?");
         LOGGER.info(auto1);
-        LOGGER.info(auto2);
-        LOGGER.info(auto3);
-        LOGGER.info(office1);
+
         // end of stack
 
         // ADD QUEUE
@@ -152,16 +149,13 @@ public class Main {
         myPriorityQueue.add("Computer LG");
         LOGGER.info(myPriorityQueue);
 
-
-        Server myServer = new Server(100, 500, 25000);
+        Server myServer = new Server(1,1,1);
         myServer.display(150);
         myServer.costComputer(1500);
         myServer.network("LAN 100");
-
         LOGGER.info(myServer);
 
         Laptop hisLaptop = new Laptop("Vasiliy", 1520);
-        System.out.println(hisLaptop);
         hisLaptop.support();
         hisLaptop.scanIdable("4125=6!");
         hisLaptop.mainInstruction();
@@ -175,8 +169,9 @@ public class Main {
         IPowerOn power = new Laptop("Lenovo", 46);
         power.iPowerOn();
         ScanIdable password = new Monoblock(50);
-        password.scanIdable("No123");
         ScanIdable.enterPassword(); //use static method of interface
+        password.scanIdable("No123");
+
 
         //use final method
         Mouse myMouse = new Mouse("Logitech", "USB");

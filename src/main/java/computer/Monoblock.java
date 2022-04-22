@@ -2,7 +2,6 @@ package computer;
 
 import computer.exceptions.WeigthMonoblockExeption;
 import org.apache.logging.log4j.LogManager;
-
 import java.util.Objects;
 
 public class Monoblock extends Computer {
@@ -15,7 +14,7 @@ public class Monoblock extends Computer {
     }
 
     public void monoblockComparison() {
-        Monoblock herMonoblok = new Monoblock(100);
+        Monoblock herMonoblok = new Monoblock(500);
         Monoblock ourMonoblok = new Monoblock(100);
         boolean answer = ourMonoblok.toString().equals(herMonoblok.toString());
         if (!answer) {
@@ -83,13 +82,13 @@ public class Monoblock extends Computer {
 
     @Override
     public void scanIdable(String iD) {
-        System.out.println("Your ID: " + iD);
+        LOGGER.info("Your ID: " + iD);
 
     }
 
     @Override
     public void support() {
-        System.out.println("My support is from Tesla");
+        LOGGER.info("My support is from Tesla");
 
     }
 
