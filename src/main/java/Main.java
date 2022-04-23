@@ -17,6 +17,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,7 +28,19 @@ import java.util.stream.Collectors;
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException {
+    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException, ClassNotFoundException {
+
+
+        // Use Reflection
+        Class firmsMonitor = Monitor.class;
+        Class yourMonitor = Class.forName("computer.Monitor");
+        Method[] methodsOfYourMonitor = yourMonitor.getMethods();
+        for (Method method:methodsOfYourMonitor){
+                System.out.println(method.getName() + " , " +
+                        method.getReturnType() + " , " +
+                        Arrays.toString(method.getParameterTypes()));
+        }
+
 
         // Use Lambas
         IAddVolumeHDD addVolumeHDD;
@@ -179,7 +194,7 @@ public class Main {
         int numbersOfWords = StringUtils.countMatches(str, " ") + 1;
         FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
         LOGGER.info("Numbers of words:" + numbersOfWords);
-        
+
         //use final method
         Mouse myMouse = new Mouse("Logitech", "USB");
         myMouse.click();
