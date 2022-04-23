@@ -21,6 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
+
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -62,13 +63,7 @@ public class Main {
         LOGGER.info(nameComputer);
 
 
-        //calculate the numbers of the unique words
-        File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");
-        File file2 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileIN.txt");
-        String str = FileUtils.readFileToString(file1, "UTF-8");
-        int numbersOfWords = StringUtils.countMatches(str, " ") + 1;
-        FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
-        LOGGER.info("Numbers of words:" + numbersOfWords);
+
 
         Monitor monik = new Monitor("JORE", true);
         monik.mySupport();
@@ -77,26 +72,30 @@ public class Main {
         TypeOfMonitor ourMonitor = TypeOfMonitor.TFTTN;
         ourMonitor.supportMonitor(ourMonitor);
 
-        //add LinkedList
+        //add LinkedList and use Operations
         List<String> list = new LinkedList<String>();
         list.add("Pentium");
         list.add("Nemiga");
         list.add("Mac");
         list.add("HP");
         list.remove("HP");
+        list.stream().filter(x-> x.toString().length() <=6).forEach(System.out::println);
+        list.stream().forEach(a -> LOGGER.info(a));
         list = list.stream().map(a -> a + "  Serial of 2022 year").collect(Collectors.toList());
         LOGGER.info(list);
+        list = list.stream().filter(a -> a.contains("Mac")).collect(Collectors.toList());
+        LOGGER.info(list);
+
+
 
         //add MyLinkedList
         MyLinkedList test = new MyLinkedList();
         test.add(150);
         test.add(850);
         test.add(789);
-        LOGGER.info(test);
         LOGGER.info(test.get(0));
         test.remove(0);
         LOGGER.info(test);
-
 
         // add HashMap
         HashMap<Integer, String> serialNumberAndModelComputer = new HashMap<>();
@@ -147,6 +146,7 @@ public class Main {
         myPriorityQueue.add("Computer Lenovo");
         myPriorityQueue.add("Computer HP");
         myPriorityQueue.add("Computer LG");
+        myPriorityQueue.stream().findFirst().orElse("1");
         LOGGER.info(myPriorityQueue);
 
         Server myServer = new Server(1,1,1);
@@ -172,7 +172,14 @@ public class Main {
         ScanIdable.enterPassword(); //use static method of interface
         password.scanIdable("No123");
 
-
+        //calculate the numbers of the unique words
+        File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");
+        File file2 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileIN.txt");
+        String str = FileUtils.readFileToString(file1, "UTF-8");
+        int numbersOfWords = StringUtils.countMatches(str, " ") + 1;
+        FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
+        LOGGER.info("Numbers of words:" + numbersOfWords);
+        
         //use final method
         Mouse myMouse = new Mouse("Logitech", "USB");
         myMouse.click();
