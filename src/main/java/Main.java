@@ -28,19 +28,23 @@ import java.util.stream.Collectors;
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException, ClassNotFoundException {
+    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException, ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException {
 
+
+        //
 
         // Use Reflection
         Class firmsMonitor = Monitor.class;
         Class yourMonitor = Class.forName("computer.Monitor");
         Method[] methodsOfYourMonitor = yourMonitor.getMethods();
         for (Method method:methodsOfYourMonitor){
-                System.out.println(method.getName() + " , " +
-                        method.getReturnType() + " , " +
-                        Arrays.toString(method.getParameterTypes()));
+                LOGGER.info(method.getName() + " , " +
+                        method.getReturnType() + " , " + Arrays.toString(method.getParameterTypes()));
         }
-
+        Method methodOfMonitor = firmsMonitor.getMethod("offMonitor", boolean.class);
+        Object anyMonitor = yourMonitor.newInstance();
+        methodOfMonitor.invoke(anyMonitor, false);
+        LOGGER.info(anyMonitor);
 
         // Use Lambas
         IAddVolumeHDD addVolumeHDD;
