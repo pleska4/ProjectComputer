@@ -127,6 +127,31 @@ public class Server extends Computer {
     public String usersOfDevice(int users) {
         return super.usersOfDevice(users);
     }
+
+    public int getNumberOfConnections() {
+        return numberOfConnections;
+    }
+
+    public void setNumberOfConnections(int numberOfConnections) {
+        this.numberOfConnections = numberOfConnections;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
 }
 
 

@@ -10,6 +10,8 @@ import computer.interfaces.IPowerOn;
 import computer.interfaces.ScanIdable;
 import computer.interfaces.Supportable;
 import computer.myLinkedList.MyLinkedList;
+import computer.thread.ClassThread;
+import computer.thread.Run;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -19,8 +21,12 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.concurrent.ExecutorService;
 import java.lang.reflect.*;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 
@@ -31,20 +37,31 @@ public class Main {
     public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException, ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException {
 
 
-        //
+        // Thread
+        ClassThread newThread = new ClassThread();
+        Thread myThread = new Thread(new Run());
+        newThread.summUsers(5);
+        myThread.start();
+
+        ExecutorService poolOfThreads = Executors.newFixedThreadPool(5);
+        for (int i = 0; i<5; i++)
+            poolOfThreads.submit(new ClassThread());
+        poolOfThreads.shutdown();
+        poolOfThreads.awaitTermination(1, TimeUnit.HOURS);
 
         // Use Reflection
         Class firmsMonitor = Monitor.class;
         Class yourMonitor = Class.forName("computer.Monitor");
+        Method methodOfMonitor = firmsMonitor.getMethod("offMonitor", boolean.class);
+        Object anyMonitor = yourMonitor.newInstance();
+        methodOfMonitor.invoke(anyMonitor, false);
+        LOGGER.info(anyMonitor);
         Method[] methodsOfYourMonitor = yourMonitor.getMethods();
         for (Method method:methodsOfYourMonitor){
                 LOGGER.info(method.getName() + " , " +
                         method.getReturnType() + " , " + Arrays.toString(method.getParameterTypes()));
         }
-        Method methodOfMonitor = firmsMonitor.getMethod("offMonitor", boolean.class);
-        Object anyMonitor = yourMonitor.newInstance();
-        methodOfMonitor.invoke(anyMonitor, false);
-        LOGGER.info(anyMonitor);
+
 
         // Use Lambas
         IAddVolumeHDD addVolumeHDD;

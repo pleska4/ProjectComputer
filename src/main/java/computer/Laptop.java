@@ -6,13 +6,28 @@ import org.apache.logging.log4j.Logger;
 import java.util.Objects;
 
 public class Laptop extends Computer {
-    String nameUserLaptop;
-    int size;
+    private String nameUserLaptop;
+    private int size;
     private static final Logger LOGGER = LogManager.getLogger();
 
     public Laptop(String nameUserLaptop, int size) {
         this.nameUserLaptop = nameUserLaptop;
         this.size = size;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+    public String getNameUserLaptop() {
+        return nameUserLaptop;
+    }
+
+    public void setNameUserLaptop(String nameUserLaptop) {
+        this.nameUserLaptop = nameUserLaptop;
     }
 
     @Override
