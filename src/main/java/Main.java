@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException, ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException {
+    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException, ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException, InterruptedException {
 
 
         // Thread
@@ -48,6 +48,7 @@ public class Main {
             poolOfThreads.submit(new ClassThread());
         poolOfThreads.shutdown();
         poolOfThreads.awaitTermination(1, TimeUnit.HOURS);
+
 
         // Use Reflection
         Class firmsMonitor = Monitor.class;
