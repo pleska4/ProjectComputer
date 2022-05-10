@@ -1,3 +1,4 @@
+
 insert customers (name, customers_phone) values ('Masha', 1587852);
 insert customers (name, customers_phone) values ('Vadik', 1578521);
 insert customers (name, customers_phone) values ('Roman', 7783564);
@@ -23,6 +24,7 @@ insert into cars (model, registration_number, tecnical_sertificate_id, customers
 insert into cars (model, registration_number, tecnical_sertificate_id, customers_id) values ('Ford', '58745', 3, 3);
 insert into cars (model, registration_number, tecnical_sertificate_id, customers_id) values ('VW', '47585', 4, 4);
 insert into cars (model, registration_number, tecnical_sertificate_id, customers_id) values ('BMW', '96358', 5, 5);
+
 update payments set sum=150 where idPayment=1;
 update cars set model='Zaporojec' where idCars=2;
 update payments set sum=sum*0.9 where idPayment>3;
@@ -33,6 +35,7 @@ update cars set model='Dawoo' where idCars=5;
 update cars set registration_number=8547 where idCars=2;
 update customers set name='Bond' where `id customer`=2;
 update customers set name='Ilja' where `id customer`=1;
+
 delete from customers where `id customer`=2;
 delete from discount_cards where percent>15;
 delete from customers where name= 'Varvara';
@@ -43,10 +46,18 @@ delete from discount_cards where percent>15;
 delete from customers where customers_phone= 'Varvara';
 delete from cars where registration_number='8959854';
 delete from payments where sum=50;
+
 alter table discount_cards modify column percent INT(10);
 alter table cars rename column  registration_number to registration_number_transit;
 alter table cars rename column registration_number_transit to registration_number;
 alter table customers add customers_comments char;
 alter table customers drop customers_comments;
+
 select * from customers;
 select * from customers inner join cars on customers_id=`id customer`;
+select *from discount_cards left join cars on `Customers_id customer`=customers_id;
+select name, customers_phone from customers right join cars on customers_id=`id customer`;
+select c.`id customer`, c.name, c.customers_phone, d.percent, ca.model, ca.registration_number 
+from customers c join discount_cards d on `Customers_id customer`=`id customer` join cars ca 
+on customers_id=`id customer`;
+select *from discount_cards where percent =(select max(percent) as maxAge from discount_cards);
