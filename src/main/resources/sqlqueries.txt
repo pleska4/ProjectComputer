@@ -60,4 +60,15 @@ select name, customers_phone from customers right join cars on customers_id=`id 
 select c.`id customer`, c.name, c.customers_phone, d.percent, ca.model, ca.registration_number 
 from customers c join discount_cards d on `Customers_id customer`=`id customer` join cars ca 
 on customers_id=`id customer`;
+select sum(percent) from discount_cards where `Customers_id customer`<10;
 select *from discount_cards where percent =(select max(percent) as maxAge from discount_cards);
+select `Customers_id customer`,percent,avg(percent) avgPercent  from discount_cards group by `Customers_id customer`;
+select `Customers_id customer`,percent,avg(percent) avgPercent  from discount_cards group by `Customers_id customer` having avgPercent>5;
+select `Customers_id customer`,percent,min(percent) minPercent from discount_cards group by `Customers_id customer`;
+select `Customers_id customer`,percent,min(percent) minPercent from discount_cards group by `Customers_id customer` having minPercent<20;
+select `Customers_id customer`,percent,max(percent) maxPercent from discount_cards group by `Customers_id customer` having maxPercent>10;
+select `Customers_id customer`,percent,max(percent) maxPercent from discount_cards group by `Customers_id customer`;
+select `Customers_id customer`,percent,count(percent) countPercent from discount_cards group by `Customers_id customer`;
+select `Customers_id customer`,percent,count(percent) countPercent from discount_cards group by `Customers_id customer` having countPercent=5;
+select `Customers_id customer`,percent,sum(percent) sumPercent  from discount_cards group by `Customers_id customer`;
+select `Customers_id customer`,percent,sum(percent) sumPercent  from discount_cards group by `Customers_id customer`having sumPercent=6;
