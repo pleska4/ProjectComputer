@@ -1,9 +1,10 @@
 package connectionpool;
 
 abstract class JDBC {
-    private ConnectionPool connectionPool = ConnectionPool.init();
+    private ConnectionPool connectionPool = ConnectionPool.getCp();
 
-    protected ConnectionPool getConnectionPool() {
+    protected ConnectionPool getConnectionPool()
+    {
         return this.connectionPool;
     }
 }

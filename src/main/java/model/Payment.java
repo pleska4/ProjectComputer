@@ -1,10 +1,10 @@
 package model;
 
-public class Payments extends AbstractEntity{
+public class Payment extends AbstractEntity{
     private Integer sum;
     private Integer discount;
 
-    public Payments(Integer sum, Integer discount) {
+    public Payment(Integer sum, Integer discount) {
         this.sum = sum;
         this.discount = discount;
     }

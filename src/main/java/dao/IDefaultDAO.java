@@ -2,12 +2,12 @@ package dao;
 
 import java.util.List;
 
-public interface IDefaultDao<K, E> {
+public interface IDefaultDAO<T> {
 
-    List<E> getAll();
-    E getById(K id);
-    void deleteById(K id);
-    void createNewEntity(E entity);
-    void removeEntity(int id);
+    public void insert(T entity);
+    public void update(T entity);
+    public void delete(int id);
+    public T get(int id);
+    public List<T> get();
 
 }
