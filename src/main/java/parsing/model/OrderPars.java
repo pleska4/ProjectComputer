@@ -1,15 +1,14 @@
 package techStation.model;
 
 
-public class Order  {
-    private Integer id;
+public class OrderPars  {
     private Integer price;
 
-    public Order(Integer price) {
+    public OrderPars(Integer price) {
         this.price = price;
     }
 
-    public Order() {
+    public OrderPars() {
     }
 
     public Integer getPrice() {

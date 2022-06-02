@@ -1,8 +1,7 @@
 package techStation.model;
 
 
-public class Order  {
-    private Integer id;
+public class Order extends techStation.model.AbstractEntity {
     private Integer price;
 
     public Order(Integer price) {
