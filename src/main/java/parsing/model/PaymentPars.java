@@ -1,10 +1,14 @@
+package parsing.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PaymentPars  {
 
-
+    @JsonProperty
     private Integer id;
+    @JsonProperty
     private Integer sum;
+    @JsonProperty
     private Integer discount;
 
     public PaymentPars(Integer sum, Integer discount) {
@@ -14,6 +18,9 @@ public class PaymentPars  {
 
     public PaymentPars() {
 
+    }
+
+    public static void setCustomerPars(CustomerPars customPars) {
     }
 
     public Integer getSum() {

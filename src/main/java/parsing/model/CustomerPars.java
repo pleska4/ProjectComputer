@@ -1,7 +1,22 @@
+package parsing.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Date;
+
 public class CustomerPars  {
+    @JsonProperty
     private Integer id;
+    @JsonProperty
     private String name;
+    @JsonProperty
     private Integer customers_phone;
+
+    @JsonProperty
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy")
+    private Date birthday;
+
 
     public CustomerPars(Integer id, String name, Integer customers_phone) {
         this.id = id;
@@ -10,6 +25,12 @@ public class CustomerPars  {
             }
 
     public CustomerPars() {
+    }
+
+    public static void setBirthday(Date birthday) {
+    }
+
+    public static void setCustomers_phone(String customers_phone) {
     }
 
     public String getName() {
@@ -46,6 +67,10 @@ public class CustomerPars  {
     }
     public int getId(int id) {
         return id;
+    }
+
+    public Date getBirthday() {
+        return birthday;
     }
 }
 

@@ -1,3 +1,5 @@
+package parsing.model;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -19,6 +21,9 @@ public class CarPars {
     private String registration_number;
     @JsonProperty
     private String technical_sertificate_id;
+
+    public static void setRegistration_number(int registration_number) {
+    }
 
 
     @Override

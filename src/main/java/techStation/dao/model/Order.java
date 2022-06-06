@@ -2,6 +2,14 @@ package techStation.model;
 
 
 public class Order  {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id = id;
+    }
+
     private Integer id;
     private Integer price;
 

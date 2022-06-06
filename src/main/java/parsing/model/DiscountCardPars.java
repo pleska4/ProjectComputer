@@ -1,8 +1,12 @@
+package parsing.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DiscountCardPars  {
 
+    @JsonProperty
     private Integer id;
+    @JsonProperty
     private Integer percent;
 
 

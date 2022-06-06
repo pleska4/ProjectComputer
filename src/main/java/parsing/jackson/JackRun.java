@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import parsing.model.CarPars;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class JackRun {
             LOGGER.info("Successfully deserialized from: " + file.getPath());
             LOGGER.info(serviceStations);
         } catch (IOException e) {
-            LOGGER.info("Error", e);
+            LOGGER.info("Error!!!", e);
         }
     }
 

@@ -1,6 +1,11 @@
+package parsing.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class OrderPars  {
+    @JsonProperty
     private Integer id;
+    @JsonProperty
     private Integer price;
 
     public OrderPars(Integer price) {
@@ -8,6 +13,12 @@ public class OrderPars  {
     }
 
     public OrderPars() {
+    }
+
+    public static void setPrice(String price) {
+    }
+
+    public static void setId(String id) {
     }
 
     public Integer getPrice() {
