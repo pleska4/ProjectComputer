@@ -233,6 +233,11 @@ public class Main {
             e.printStackTrace();
         }
 
+        //Calculate words in text
+
+        WordsCalcUtils calcUtils = new WordsCalcUtils();
+        calcUtils.utilsLesson();
+
     }
 }
 
