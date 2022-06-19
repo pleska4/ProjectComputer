@@ -1,4 +1,4 @@
-package computer.interfaces;
+package com.solvd.computer.interfaces;
 
 import org.apache.logging.log4j.LogManager;
 

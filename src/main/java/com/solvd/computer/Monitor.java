@@ -1,6 +1,6 @@
-package computer;
+package com.solvd.computer;
+import com.solvd.computer.interfaces.Supportable;
 import computer.enums.TypeOfMonitor;
-import computer.interfaces.Supportable;
 import org.apache.logging.log4j.LogManager;
 
 
@@ -66,7 +66,7 @@ public class Monitor implements Supportable {
         return isConnectorVDI;
     }
 
-    public boolean isMonitorOffM() {
+    public boolean isMonitorOff() {
         return isMonitorOff;
     }
 

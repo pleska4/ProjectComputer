@@ -1,31 +1,28 @@
-import computer.*;
+package com.solvd.computer;
+
+
+import com.solvd.computer.interfaces.IPowerOn;
+import com.solvd.computer.interfaces.ScanIdable;
+import com.solvd.computer.interfaces.Supportable;
+import com.solvd.computer.myLinkedList.MyLinkedList;
+import com.solvd.computer.thread.ClassThread;
+import com.solvd.computer.thread.Run;
 import computer.enums.TypeOfMonitor;
 import computer.exceptions.VolumeMemoryException;
-import computer.exceptions.WeigthMonoblockException;
 import computer.functionalInterfaces.IAddSummDevices;
 import computer.functionalInterfaces.IAddVolumeHDD;
 import computer.functionalInterfaces.ICalculateUsers;
 import computer.functionalInterfaces.INamingYourDevice;
-import computer.interfaces.IPowerOn;
-import computer.interfaces.ScanIdable;
-import computer.interfaces.Supportable;
-import computer.myLinkedList.MyLinkedList;
-import computer.thread.ClassThread;
-import computer.thread.Run;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import computer.exceptions.*;
+
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.concurrent.ExecutorService;
-import java.lang.reflect.*;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -55,61 +52,23 @@ public class Main {
         }
 
 
-        // Use Reflection
-        Class firmsMonitor = Monitor.class;
-        Class yourMonitor = null;
-        try {
-            yourMonitor = Class.forName("computer.Monitor");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        Method methodOfMonitor = null;
-        try {
-            methodOfMonitor = firmsMonitor.getMethod("offMonitor", boolean.class);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-        Object anyMonitor = null;
-        try {
-            anyMonitor = yourMonitor.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        try {
-            methodOfMonitor.invoke(anyMonitor, false);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        LOGGER.info(anyMonitor);
-        Method[] methodsOfYourMonitor = yourMonitor.getMethods();
-        for (Method method:methodsOfYourMonitor){
-                LOGGER.info(method.getName() + " , " +
-                        method.getReturnType() + " , " + Arrays.toString(method.getParameterTypes()));
-        }
-
-
-        // Use Lambas
+        // Use Lambdas
         IAddVolumeHDD addVolumeHDD;
         addVolumeHDD = volume -> volume * 2;
         int result = addVolumeHDD.add(150);
         LOGGER.info(result);
 
-        // Use Lambas with default method in functonalInterface
+        // Use Lambdas with default method in functionalInterface
         ICalculateUsers calculateUsers;
         calculateUsers = colNames -> colNames + 1;
         int resulting = calculateUsers.iCalculateUsers(500);
         LOGGER.info(resulting);
         LOGGER.info(calculateUsers.usersOfDevice(resulting));
 
-        // Use Lambas with generic in functonalInterface
+        // Use Lambdas with generic in functonalInterface
         IAddSummDevices<Integer, String> func = (a, v) -> {
             int summ = 0;
-            for (int i = 0; i < a.length; ++i) {
-                if (a[i].equals(v)) ;
+            for (String s : a) {
                 ++summ;
             }
             return summ;
@@ -119,8 +78,8 @@ public class Main {
         model[1] = "LG";
         model[2] = "Horizont";
         model[3] = "NoName";
-        int resultat = func.func(model, "LG");
-        LOGGER.info(resultat);
+        result = func.func(model, "LG");
+        LOGGER.info(result);
 
 
         INamingYourDevice naming = (i) -> ("Your device name " + i);
@@ -145,7 +104,7 @@ public class Main {
         list.add("HP");
         list.remove("HP");
         list.stream().filter(x-> x.toString().length() <=6).forEach(System.out::println);
-        list.stream().forEach(a -> LOGGER.info(a));
+        list.stream().forEach(LOGGER::info);
         list = list.stream().map(a -> a + "  Serial of 2022 year").collect(Collectors.toList());
         LOGGER.info(list);
         list = list.stream().filter(a -> a.contains("Mac")).collect(Collectors.toList());
@@ -263,7 +222,7 @@ public class Main {
         Printer.costPrinter(1520, 8560);
 
         Monitor myMonitor = new Monitor();
-        myMonitor.isMonitorOffM();
+        myMonitor.isMonitorOff();
         myMonitor.offMonitor(false);
 
         //use scanner. Enter memory volume

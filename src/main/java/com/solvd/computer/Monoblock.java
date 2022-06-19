@@ -1,4 +1,4 @@
-package computer;
+package com.solvd.computer;
 
 import computer.exceptions.WeigthMonoblockException;
 import org.apache.logging.log4j.LogManager;

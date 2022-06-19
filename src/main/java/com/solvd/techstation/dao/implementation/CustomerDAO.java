@@ -25,7 +25,7 @@ public class CustomerDAO implements ICustomerDAO {
     public Customer getEntityById(int id) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * From Customers where id=?");
+            pr = connection.prepareStatement("Select * from Customers where id=?");
             pr.setInt(1, id);
             pr.execute();
             resultSet = pr.getResultSet();

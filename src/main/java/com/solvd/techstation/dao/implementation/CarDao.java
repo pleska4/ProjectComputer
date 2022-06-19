@@ -55,7 +55,7 @@ public class CarDao implements ICarDAO {
     public void saveEntity(Car entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Insert into cars (Model,Registration_number, Technical_sertificate_id) Values (?,?)");
+            pr = connection.prepareStatement("Insert into cars (Model,Registration_number, Technical_sertificate_id) Values (?,?,?)");
             pr.setString(1, entity.getModel());
             pr.setString(2, String.valueOf(entity.getRegistration_number()));
             pr.executeUpdate();

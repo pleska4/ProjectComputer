@@ -1,9 +1,10 @@
-package computer;
+package com.solvd.computer;
 
+import com.solvd.computer.interfaces.*;
 import computer.functionalInterfaces.IAddVolumeHDD;
 import computer.functionalInterfaces.ICalculateUsers;
 import computer.functionalInterfaces.INamingYourDevice;
-import computer.interfaces.*;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

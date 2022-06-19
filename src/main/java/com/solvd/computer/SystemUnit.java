@@ -1,4 +1,4 @@
-package computer;
+package com.solvd.computer;
 
 import computer.exceptions.VolumeMemoryException;
 import org.apache.logging.log4j.LogManager;

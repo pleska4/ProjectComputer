@@ -1,4 +1,4 @@
-package computer.interfaces;
+package com.solvd.computer.interfaces;
 
 public interface IPowerOn {
     void iPowerOn();

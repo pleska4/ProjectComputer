@@ -1,4 +1,4 @@
-package computer;
+package com.solvd.computer;
 
 import computer.exceptions.FileException;
 import org.apache.commons.io.FileUtils;
