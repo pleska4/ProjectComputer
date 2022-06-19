@@ -1,7 +1,7 @@
 import computer.*;
 import computer.enums.TypeOfMonitor;
 import computer.exceptions.VolumeMemoryException;
-import computer.exceptions.WeigthMonoblockExeption;
+import computer.exceptions.WeigthMonoblockException;
 import computer.functionalInterfaces.IAddSummDevices;
 import computer.functionalInterfaces.IAddVolumeHDD;
 import computer.functionalInterfaces.ICalculateUsers;
@@ -16,6 +16,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import computer.exceptions.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +35,7 @@ import java.util.stream.Collectors;
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static void main(String[] args) throws VolumeMemoryException, WeigthMonoblockExeption, IOException, ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException, InterruptedException {
+    public static void main(String[] args)  {
 
 
         // Thread
@@ -47,15 +48,42 @@ public class Main {
         for (int i = 0; i<5; i++)
             poolOfThreads.submit(new ClassThread());
         poolOfThreads.shutdown();
-        poolOfThreads.awaitTermination(1, TimeUnit.HOURS);
+        try {
+            poolOfThreads.awaitTermination(1, TimeUnit.HOURS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         // Use Reflection
         Class firmsMonitor = Monitor.class;
-        Class yourMonitor = Class.forName("computer.Monitor");
-        Method methodOfMonitor = firmsMonitor.getMethod("offMonitor", boolean.class);
-        Object anyMonitor = yourMonitor.newInstance();
-        methodOfMonitor.invoke(anyMonitor, false);
+        Class yourMonitor = null;
+        try {
+            yourMonitor = Class.forName("computer.Monitor");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        Method methodOfMonitor = null;
+        try {
+            methodOfMonitor = firmsMonitor.getMethod("offMonitor", boolean.class);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        Object anyMonitor = null;
+        try {
+            anyMonitor = yourMonitor.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        try {
+            methodOfMonitor.invoke(anyMonitor, false);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
         LOGGER.info(anyMonitor);
         Method[] methodsOfYourMonitor = yourMonitor.getMethods();
         for (Method method:methodsOfYourMonitor){
@@ -213,9 +241,18 @@ public class Main {
         //calculate the numbers of the unique words
         File file1 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileOUT.txt");
         File file2 = new File("C:\\Users\\Pleskach\\Computer\\src\\main\\resources\\fileIN.txt");
-        String str = FileUtils.readFileToString(file1, "UTF-8");
+        String str = null;
+        try {
+            str = FileUtils.readFileToString(file1, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         int numbersOfWords = StringUtils.countMatches(str, " ") + 1;
-        FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
+        try {
+            FileUtils.writeStringToFile(file2, String.valueOf(numbersOfWords));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         LOGGER.info("Numbers of words:" + numbersOfWords);
 
         //use final method
@@ -231,7 +268,11 @@ public class Main {
 
         //use scanner. Enter memory volume
         SystemUnit mySystemUnit = new SystemUnit();
-        mySystemUnit.summMemory();
+        try {
+            mySystemUnit.summMemory();
+        } catch (VolumeMemoryException e) {
+            e.printStackTrace();
+        }
 
     }
 }

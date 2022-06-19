@@ -1,6 +1,6 @@
 package computer;
 
-import computer.exceptions.WeigthMonoblockExeption;
+import computer.exceptions.WeigthMonoblockException;
 import org.apache.logging.log4j.LogManager;
 import java.util.Objects;
 
@@ -19,8 +19,8 @@ public class Monoblock extends Computer {
         boolean answer = ourMonoblok.toString().equals(herMonoblok.toString());
         if (!answer) {
             try {
-                throw new WeigthMonoblockExeption("Monobloks are different!");
-            } catch (WeigthMonoblockExeption e) {
+                throw new WeigthMonoblockException("Monobloks are different!");
+            } catch (WeigthMonoblockException e) {
                 e.printStackTrace();
             }
         }
