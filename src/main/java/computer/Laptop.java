@@ -6,9 +6,12 @@ import org.apache.logging.log4j.Logger;
 import java.util.Objects;
 
 public class Laptop extends Computer {
+
+    private static final Logger LOGGER = LogManager.getLogger(Laptop.class);
+
     private String nameUserLaptop;
     private int size;
-    private static final Logger LOGGER = LogManager.getLogger();
+
 
     public Laptop(String nameUserLaptop, int size) {
         this.nameUserLaptop = nameUserLaptop;

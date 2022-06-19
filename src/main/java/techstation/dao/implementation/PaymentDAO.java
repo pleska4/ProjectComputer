@@ -1,9 +1,10 @@
-package techStation.implementation;
+package techstation.implementation;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import techStation.connectionpool.ConnectionPool;
-import techStation.model.Order;
+import techstation.connectionpool.ConnectionPool;
+import techstation.interfaces.IPaymentDAO;
+import techstation.model.Payment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,26 +14,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class OrderDAO implements techStation.interfaces.IOrderDAO {
-    private static final Logger LOGGER = LogManager.getLogger(OrderDAO.class);
+public class PaymentDAO implements IPaymentDAO {
+    private static final Logger LOGGER = LogManager.getLogger(Payment.class);
     private static final Properties p = new Properties();
-    private final Order order = new Order();
+    private final Payment payment = new Payment();
     private final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private Connection connection;
     private PreparedStatement pr = null;
     private ResultSet resultSet = null;
 
     @Override
-    public Order getEntityById(int id) {
+    public Payment getEntityById(int id) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * from orders where id=?");
+            pr = connection.prepareStatement("Select * from payments where id=?");
             pr.setInt(1, id);
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
-                order.setId();
-                order.setPrice(resultSet.getInt("price"));
+                payment.setId();
+                payment.setSum(resultSet.getInt("summa"));
+                payment.setDiscount(resultSet.getInt("discount"));
+
             }
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -45,16 +48,16 @@ public class OrderDAO implements techStation.interfaces.IOrderDAO {
                 LOGGER.info(e);
             }
         }
-        return order;
+        return payment;
     }
 
     @Override
-    public void saveEntity(Order entity) {
+    public void saveEntity(Payment entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement
-                    ("Insert into orders (price) Values (?)");
-            pr.setInt(2, entity.getPrice());
+            pr = connection.prepareStatement("Insert into payment (Summa,Discount Values (?,?)");
+            pr.setInt(1, entity.getSum());
+            pr.setInt(2, entity.getDiscount());
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -69,13 +72,13 @@ public class OrderDAO implements techStation.interfaces.IOrderDAO {
     }
 
     @Override
-    public void updateEntity(Order entity) {
+    public void updateEntity(Payment entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement
-                    ("Update orders Set price where id=?");
-            pr.setInt(1, entity.getPrice());
-            pr.setInt(2, entity.getId());
+            pr = connection.prepareStatement("Update payments Set Sum=?, Discount=? where id=?");
+            pr.setInt(1, entity.getSum());
+            pr.setInt(2, entity.getDiscount());
+            pr.setLong(3, entity.getId());
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -90,11 +93,11 @@ public class OrderDAO implements techStation.interfaces.IOrderDAO {
     }
 
     @Override
-    public void removeEntity(Order entity) {
+    public void removeEntity(Payment entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Delete from orders where id=?");
-            pr.setInt(1, entity.getId());
+            pr = connection.prepareStatement("Delete from payments where id=?");
+            pr.setLong(1, entity.getId());
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -112,13 +115,14 @@ public class OrderDAO implements techStation.interfaces.IOrderDAO {
     public void viewAll() {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * from orders");
+            pr = connection.prepareStatement("Select * from cars");
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
-                order.setId();
-                order.setPrice(resultSet.getInt("price"));
-                LOGGER.info(order);
+                payment.setId();
+                payment.setSum(resultSet.getInt("summa"));
+                payment.setDiscount(resultSet.getInt("discount"));
+                LOGGER.info(payment);
             }
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -134,18 +138,20 @@ public class OrderDAO implements techStation.interfaces.IOrderDAO {
     }
 
     @Override
-    public List<Order> getOrders() {
-        List<Order> orders = new ArrayList<>();
+    public List<Payment> getPayments() {
+        List<Payment> payments = new ArrayList<>();
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * from orders");
+            pr = connection.prepareStatement("Select * from cars");
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
-                Order order = new Order();
-                order.setId();
-                order.setPrice(resultSet.getInt("price"));
-                orders.add(order);
+                Payment payment = new Payment();
+                payment.setId();
+                payment.setId();
+                payment.setSum(resultSet.getInt("summa"));
+                payment.setDiscount(resultSet.getInt("discount"));
+                payments.add(payment);
             }
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -157,7 +163,9 @@ public class OrderDAO implements techStation.interfaces.IOrderDAO {
             } catch (SQLException e) {
                 LOGGER.info(e);
             }
+            return payments;
         }
-        return orders;
     }
 }
+
+

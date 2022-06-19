@@ -1,6 +1,6 @@
-package techStation.model;
+package techstation.model;
 
-public class Payment extends techStation.model.AbstractEntity {
+public class Payment extends techstation.model.AbstractEntity {
     private Integer sum;
     private Integer discount;
 

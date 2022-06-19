@@ -5,7 +5,8 @@ import org.apache.logging.log4j.LogManager;
 
 
 public class Monitor implements Supportable {
-    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(Monitor.class);
+
     private String modelMonitor;
     private int diagonalMonitor;
     private boolean isConnectorHDMI;

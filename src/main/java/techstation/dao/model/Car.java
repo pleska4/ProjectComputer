@@ -1,6 +1,6 @@
-package techStation.model;
+package techstation.model;
 
-public class Car extends techStation.model.AbstractEntity {
+public class Car extends techstation.model.AbstractEntity {
     private String model;
     private String registration_number;
     private String technical_sertificate_id;

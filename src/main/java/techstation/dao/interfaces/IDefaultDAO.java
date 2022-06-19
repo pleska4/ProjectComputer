@@ -1,4 +1,4 @@
-package techStation.interfaces;
+package techstation.interfaces;
 
 public interface IDefaultDAO <T>{
     T getEntityById(int id);

@@ -1,10 +1,10 @@
-package techStation.implementation;
+package techstation.implementation;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import techStation.connectionpool.ConnectionPool;
-import techStation.interfaces.ICarDAO;
-import techStation.model.Car;
+import techstation.connectionpool.ConnectionPool;
+import techstation.interfaces.ICarDAO;
+import techstation.model.Car;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

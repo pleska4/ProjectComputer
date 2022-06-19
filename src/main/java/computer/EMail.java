@@ -7,12 +7,15 @@ import java.util.ArrayList;
 
 
 public class EMail {
+
+    private static final Logger LOGGER = LogManager.getLogger(EMail.class);
+
     private boolean letterSent;
     private boolean letterDelivered;
     private String signatureLetter;
     private String headerLetter;
     private String bodyLetter;
-    private static final Logger LOGGER = LogManager.getLogger();
+
 
     public EMail(String headerLetter, String bodyLetter, String signatureLetter) {
         this.headerLetter = headerLetter;

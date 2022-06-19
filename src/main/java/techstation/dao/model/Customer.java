@@ -1,8 +1,8 @@
-package techStation.model;
+package techstation.model;
 
 
 
-public class Customer extends techStation.model.AbstractEntity {
+public class Customer extends techstation.model.AbstractEntity {
     private Integer id;
     private String name;
     private Integer customers_phone;

@@ -6,7 +6,8 @@ import org.apache.logging.log4j.Logger;
 import java.util.Objects;
 
 public class Server extends Computer {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(Server.class);
+
     private int numberOfConnections;
     private int size;
     private int cost;

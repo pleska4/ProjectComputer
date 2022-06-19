@@ -201,7 +201,8 @@ public class Main {
         mono.monoblockComparison();
 
         //Use polymorphism
-        Supportable sup = new Laptop("Lenovo", 5);
+        Supportable sup;
+        sup = new Laptop("Lenovo", 5);
         sup.support();
         IPowerOn power = new Laptop("Lenovo", 46);
         power.iPowerOn();

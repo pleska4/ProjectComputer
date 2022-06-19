@@ -9,6 +9,9 @@ import org.apache.logging.log4j.Logger;
 
 
 public abstract class Computer implements Troubleshootingable, ScanIdable, ISwitchNetwork, IPowerOn, Supportable, ICalculateUsers, INamingYourDevice, IAddVolumeHDD {
+
+    private static final Logger LOGGER = LogManager.getLogger(Computer.class);
+
     private static String nameComputer; //use static variable
     private String ipComputer;
     private String osComputer;
@@ -17,7 +20,7 @@ public abstract class Computer implements Troubleshootingable, ScanIdable, ISwit
     private SystemUnit systemUnit;
     private EMail eMail;
     private Monitor monitor;
-    private static final Logger LOGGER = LogManager.getLogger();
+
 
 
     // add static block

@@ -1,4 +1,4 @@
-package techStation.model;
+package techstation.model;
 
 
 public class Order  {

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 public class SystemUnit {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(SystemUnit.class);
     private String nameSystemUnit;
     private String procSystemUnit;
     private String cPU;

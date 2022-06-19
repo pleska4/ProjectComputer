@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Monoblock extends Computer {
     private final int weightMonoblock;
     private final int COSTMONOBLOCK = 10000; // Final variable
-    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(Monoblock.class);
 
     public Monoblock(int weightMonoblock) {
         this.weightMonoblock = weightMonoblock;

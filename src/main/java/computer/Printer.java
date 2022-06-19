@@ -6,7 +6,7 @@ public class Printer {
     private String modelPrinter;
     private int summPages;
     private int timeResource;
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(Printer.class);
 
     public Printer(String modelPrinter, int summPages, int timeResource) {
         this.modelPrinter = modelPrinter;

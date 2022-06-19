@@ -1,6 +1,6 @@
-package techStation.model;
+package techstation.model;
 
-public class DiscountCard extends techStation.model.AbstractEntity {
+public class DiscountCard extends techstation.model.AbstractEntity {
      private Integer percent;
 
 

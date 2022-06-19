@@ -1,10 +1,9 @@
-package techStation.implementation;
+package techstation.implementation;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import techStation.interfaces.IDiscountCardDAO;
-import techStation.connectionpool.ConnectionPool;
-import techStation.model.DiscountCard;
+import techstation.connectionpool.ConnectionPool;
+import techstation.model.Order;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,49 +13,48 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class DiscountCardDao implements IDiscountCardDAO {
-    private static final Logger LOGGER = LogManager.getLogger(DiscountCard.class);
+public class OrderDAO implements techstation.interfaces.IOrderDAO {
+    private static final Logger LOGGER = LogManager.getLogger(OrderDAO.class);
     private static final Properties p = new Properties();
-    private final DiscountCard user = new DiscountCard();
+    private final Order order = new Order();
     private final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private Connection connection;
     private PreparedStatement pr = null;
     private ResultSet resultSet = null;
 
     @Override
-    public DiscountCard getEntityById(int id) {
+    public Order getEntityById(int id) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * From DiscountCards where id=?");
+            pr = connection.prepareStatement("Select * from orders where id=?");
             pr.setInt(1, id);
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
-                user.setId();
-                user.getPercent(resultSet.getInt("percent"));
+                order.setId();
+                order.setPrice(resultSet.getInt("price"));
             }
-
         } catch (SQLException e) {
             LOGGER.info(e);
         } finally {
             try {
                 if (connection != null) connectionPool.putback(connection);
-                if (pr != null) pr.close();
                 if (resultSet != null) resultSet.close();
+                if (pr != null) pr.close();
             } catch (SQLException e) {
                 LOGGER.info(e);
             }
         }
-        return user;
+        return order;
     }
 
     @Override
-    public void saveEntity(DiscountCard entity) {
+    public void saveEntity(Order entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Insert into DiscountCards (percent) Values (?)");
-            pr.setInt(1, entity.getId());
-            pr.setInt(2, entity.getPercent(resultSet.getInt("percent")));
+            pr = connection.prepareStatement
+                    ("Insert into orders (price) Values (?)");
+            pr.setInt(2, entity.getPrice());
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -71,12 +69,13 @@ public class DiscountCardDao implements IDiscountCardDAO {
     }
 
     @Override
-    public void updateEntity(DiscountCard entity) {
+    public void updateEntity(Order entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Update DiscountCard Set percent=? where id=?");
-            pr.setInt(1, entity.setId());
-            pr.setInt(1, entity.setPercent());
+            pr = connection.prepareStatement
+                    ("Update orders Set price where id=?");
+            pr.setInt(1, entity.getPrice());
+            pr.setInt(2, entity.getId());
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -90,35 +89,13 @@ public class DiscountCardDao implements IDiscountCardDAO {
         }
     }
 
-
     @Override
-    public void removeEntity(DiscountCard entity) {
+    public void removeEntity(Order entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Delete from DiscountCards where id=?");
+            pr = connection.prepareStatement("Delete from orders where id=?");
             pr.setInt(1, entity.getId());
-            pr.execute();
-        } catch (SQLException e) {
-            LOGGER.info(e);
-        } finally {
-            try {
-                if (connection != null) connectionPool.putback(connection);
-                if (pr != null) pr.close();
-            } catch (SQLException e) {
-                LOGGER.info(e);
-            }
-        }
-    }
-
-    @Override
-    public void generateDiscountCard(int percent) {
-        try {
-            connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Insert into DiscountCards (percent) Values (?)");
-            for (int i = 0; i < 5; i++) {
-                pr.setInt(1, Integer.parseInt(percent + "_" + i));
-                pr.executeUpdate();
-            }
+            pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
         } finally {
@@ -135,39 +112,40 @@ public class DiscountCardDao implements IDiscountCardDAO {
     public void viewAll() {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * From DiscountCards");
+            pr = connection.prepareStatement("Select * from orders");
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
-                user.setId();
-                user.setPercent();
-                LOGGER.info(user);
+                order.setId();
+                order.setPrice(resultSet.getInt("price"));
+                LOGGER.info(order);
             }
-
         } catch (SQLException e) {
             LOGGER.info(e);
         } finally {
             try {
                 if (connection != null) connectionPool.putback(connection);
-                if (pr != null) pr.close();
                 if (resultSet != null) resultSet.close();
+                if (pr != null) pr.close();
             } catch (SQLException e) {
                 LOGGER.info(e);
             }
         }
     }
+
     @Override
-    public List<DiscountCard> getDiscountCards() {
-        List<DiscountCard> discountCards = new ArrayList<>();
+    public List<Order> getOrders() {
+        List<Order> orders = new ArrayList<>();
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * from cards");
+            pr = connection.prepareStatement("Select * from orders");
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
-                DiscountCard discountCard = new DiscountCard();
-                discountCard.setId();
-                discountCard.setPercent();
+                Order order = new Order();
+                order.setId();
+                order.setPrice(resultSet.getInt("price"));
+                orders.add(order);
             }
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -179,9 +157,7 @@ public class DiscountCardDao implements IDiscountCardDAO {
             } catch (SQLException e) {
                 LOGGER.info(e);
             }
-            return discountCards;
         }
+        return orders;
     }
 }
-
-

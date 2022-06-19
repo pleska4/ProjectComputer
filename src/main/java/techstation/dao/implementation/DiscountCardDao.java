@@ -1,38 +1,39 @@
-package techStation.implementation;
+package techstation.implementation;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import techStation.interfaces.ICustomerDAO;
-import techStation.connectionpool.ConnectionPool;
-import techStation.model.Customer;
+import techstation.interfaces.IDiscountCardDAO;
+import techstation.connectionpool.ConnectionPool;
+import techstation.model.DiscountCard;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
-public class CustomerDAO implements ICustomerDAO {
-    private static final Logger LOGGER = LogManager.getLogger(CustomerDAO.class);
+public class DiscountCardDao implements IDiscountCardDAO {
+    private static final Logger LOGGER = LogManager.getLogger(DiscountCard.class);
     private static final Properties p = new Properties();
-    private final Customer user = new Customer();
+    private final DiscountCard user = new DiscountCard();
     private final ConnectionPool connectionPool = ConnectionPool.getInstance();
     private Connection connection;
     private PreparedStatement pr = null;
     private ResultSet resultSet = null;
 
     @Override
-    public Customer getEntityById(int id) {
+    public DiscountCard getEntityById(int id) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * From Customers where id=?");
+            pr = connection.prepareStatement("Select * From DiscountCards where id=?");
             pr.setInt(1, id);
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
                 user.setId();
-                user.setName(resultSet.getString("name"));
-                user.setCustomers_phone(resultSet.getInt("customers_phone"));
+                user.getPercent(resultSet.getInt("percent"));
             }
 
         } catch (SQLException e) {
@@ -50,12 +51,12 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public void saveEntity(Customer entity) {
+    public void saveEntity(DiscountCard entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Insert into customers (name,customers_phone) Values (?,?)");
-            pr.setString(1, entity.getName());
-            pr.setInt(2, entity.getCustomers_phone());
+            pr = connection.prepareStatement("Insert into DiscountCards (percent) Values (?)");
+            pr.setInt(1, entity.getId());
+            pr.setInt(2, entity.getPercent(resultSet.getInt("percent")));
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -70,12 +71,12 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public void updateEntity(Customer entity) {
+    public void updateEntity(DiscountCard entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Update users Set name=?,`customers_phone`=? where id=?");
-            pr.setString(1, entity.getName());
-            pr.setInt(2, entity.getCustomers_phone());
+            pr = connection.prepareStatement("Update DiscountCard Set percent=? where id=?");
+            pr.setInt(1, entity.setId());
+            pr.setInt(1, entity.setPercent());
             pr.executeUpdate();
         } catch (SQLException e) {
             LOGGER.info(e);
@@ -91,10 +92,10 @@ public class CustomerDAO implements ICustomerDAO {
 
 
     @Override
-    public void removeEntity(Customer entity) {
+    public void removeEntity(DiscountCard entity) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Delete from customers where id=?");
+            pr = connection.prepareStatement("Delete from DiscountCards where id=?");
             pr.setInt(1, entity.getId());
             pr.execute();
         } catch (SQLException e) {
@@ -110,13 +111,12 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
     @Override
-    public void generateCustomers(String name, int customers_phone) {
+    public void generateDiscountCard(int percent) {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Insert into customers (name,customers_phone) Values (?,?,?)");
-            for (int i = 0; i < 2; i++) {
-                pr.setString(1, name + "_" + i);
-                pr.setInt(2, Integer.parseInt(customers_phone + "_" + i));
+            pr = connection.prepareStatement("Insert into DiscountCards (percent) Values (?)");
+            for (int i = 0; i < 5; i++) {
+                pr.setInt(1, Integer.parseInt(percent + "_" + i));
                 pr.executeUpdate();
             }
         } catch (SQLException e) {
@@ -135,13 +135,12 @@ public class CustomerDAO implements ICustomerDAO {
     public void viewAll() {
         try {
             connection = connectionPool.retrieve();
-            pr = connection.prepareStatement("Select * From Customers");
+            pr = connection.prepareStatement("Select * From DiscountCards");
             pr.execute();
             resultSet = pr.getResultSet();
             while (resultSet.next()) {
                 user.setId();
-                user.setName(resultSet.getString("name"));
-                user.setCustomers_phone(resultSet.getInt("phone"));
+                user.setPercent();
                 LOGGER.info(user);
             }
 
@@ -157,4 +156,32 @@ public class CustomerDAO implements ICustomerDAO {
             }
         }
     }
+    @Override
+    public List<DiscountCard> getDiscountCards() {
+        List<DiscountCard> discountCards = new ArrayList<>();
+        try {
+            connection = connectionPool.retrieve();
+            pr = connection.prepareStatement("Select * from cards");
+            pr.execute();
+            resultSet = pr.getResultSet();
+            while (resultSet.next()) {
+                DiscountCard discountCard = new DiscountCard();
+                discountCard.setId();
+                discountCard.setPercent();
+            }
+        } catch (SQLException e) {
+            LOGGER.info(e);
+        } finally {
+            try {
+                if (connection != null) connectionPool.putback(connection);
+                if (resultSet != null) resultSet.close();
+                if (pr != null) pr.close();
+            } catch (SQLException e) {
+                LOGGER.info(e);
+            }
+            return discountCards;
+        }
+    }
 }
+
+
